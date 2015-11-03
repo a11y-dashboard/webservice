@@ -12,7 +12,7 @@ server.route({
     method: 'GET',
     path:'/healthcheck',
     handler: function (request, reply) {
-        reply('♥');
+        reply('OK');
     }
 });
 

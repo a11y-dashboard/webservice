@@ -1,8 +1,11 @@
 {
-  "name": "a11y-dashboard-webservice",
+  "name": "@atlassian/a11y-dashboard-webservice",
   "version": "0.0.1",
   "description": "Webservice for the a11y dashboard",
   "main": "index.js",
+  "publishConfig": {
+    "registry": "https://npm-private.atlassian.io"
+  },
   "scripts": {
     "start": "DEBUG=*:info,*:error node .",
     "test": "echo \"Error: no test specified\" && exit 1"

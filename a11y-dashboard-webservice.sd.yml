@@ -1,0 +1,18 @@
+name: A11y Dashboard Webservice
+description: A11y Dashboard Webservice
+links:
+  binary:
+    type: npm
+    artifactId: '@atlassian/a11y-dashboard-webservice'
+    version: 0.0.1
+  healthcheck:
+    uri: /healthcheck
+  source:
+    url: 'https://bitbucket.org/atlassian/a11y-dashboard-webservice.git'
+notifications:
+  email: jfeth@atlassian.com
+owners:
+  - jfeth@atlassian.com
+organization: Design-Core
+downstreamServices:
+- dynamo-db

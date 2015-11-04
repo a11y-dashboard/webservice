@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node . | bunyan -o short",
     "micros": "node .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha",
+    "tdd": "./node_modules/.bin/mocha --watch --reporter min"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,9 @@
     "bunyan": "^1.5.1",
     "hapi": "^11.0.3",
     "hapi-bunyan": "^0.6.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3",
+    "supertest": "^1.1.0"
   }
 }

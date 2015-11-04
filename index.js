@@ -3,6 +3,7 @@
 const Hapi = require('hapi');
 const bunyan = require('bunyan');
 const hapiBunyan = require('hapi-bunyan');
+const AWS = require('aws-sdk');
 
 const server = new Hapi.Server();
 let loggerConfig = {

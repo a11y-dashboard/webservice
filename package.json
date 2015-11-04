@@ -20,6 +20,7 @@
   "license": "MIT",
   "homepage": "https://bitbucket.org/atlassian/a11y-dashboard-webservice#readme",
   "dependencies": {
+    "aws-sdk": "^2.2.15",
     "bunyan": "^1.5.1",
     "hapi": "^11.0.3",
     "hapi-bunyan": "^0.6.0"

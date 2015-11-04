@@ -1,0 +1,10 @@
+webservice:
+  build: .
+  ports:
+    - "8080:8080"
+  command: npm start
+dynamo:
+  ports:
+    - "8000:8000"
+  image: tray/dynamodb-local
+  command: -inMemory -port 8000

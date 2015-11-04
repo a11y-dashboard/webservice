@@ -14,5 +14,6 @@ notifications:
 owners:
   - jfeth@atlassian.com
 organization: Design-Core
-downstreamServices:
-- dynamo-db
+resources:
+- type: dynamo-db
+  name: results

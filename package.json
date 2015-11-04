@@ -7,7 +7,8 @@
     "registry": "https://npm-private.atlassian.io"
   },
   "scripts": {
-    "start": "DEBUG=*:info,*:error node .",
+    "start": "node . | bunyan -o short",
+    "micros": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +19,8 @@
   "license": "MIT",
   "homepage": "https://bitbucket.org/atlassian/a11y-dashboard-webservice#readme",
   "dependencies": {
-    "debug": "^2.2.0",
-    "hapi": "^11.0.3"
+    "bunyan": "^1.5.1",
+    "hapi": "^11.0.3",
+    "hapi-bunyan": "^0.6.0"
   }
 }

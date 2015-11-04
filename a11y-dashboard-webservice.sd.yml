@@ -2,9 +2,9 @@ name: A11y Dashboard Webservice
 description: A11y Dashboard Webservice
 links:
   binary:
-    type: npm
-    artifactId: '@atlassian/a11y-dashboard-webservice'
-    version: 0.0.1
+    type: docker
+    name: docker.atlassian.io/atlassian/a11y-dashboard-webservice
+    tag: "0.0.2"
   healthcheck:
     uri: /healthcheck
   source:

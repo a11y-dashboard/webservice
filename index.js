@@ -1,8 +1,10 @@
 var Hapi = require('hapi');
-var debug = require('debug');
-var info = debug('a11y-dashboard-webservice:info');
+var bunyan = require('bunyan');
+var hapiBunyan = require('hapi-bunyan');
 
 var server = new Hapi.Server();
+var logger = bunyan.createLogger({ name: 'a11y-dashboard-webservice' });
+
 server.connection({
     host: 'localhost',
     port: 8080
@@ -16,6 +18,17 @@ server.route({
     }
 });
 
+var config = {
+  register: hapiBunyan,
+  options: {
+    logger: logger,
+  },
+};
+
+server.register(config, function(err) {
+  if (err) throw err;
+});
+
 server.start(function () {
-    info('Server running at: %s', server.info.uri);
+    logger.info('Server running at: %s', server.info.uri);
 });

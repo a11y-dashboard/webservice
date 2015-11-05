@@ -5,15 +5,24 @@ const bunyan = require('bunyan');
 const hapiBunyan = require('hapi-bunyan');
 const AWS = require('aws-sdk');
 
-const server = new Hapi.Server();
+const NAME = 'a11y-dashboard-webservice';
+const NAME_ENV = NAME.toUpperCase().replace('-','_');
+const DYNAMO_TABLE_NAME = process.env[`DYNAMO_${NAME_ENV}_TABLE_NAME`];
+const DYNAMO_TABLE_REGION = process.env[`DYNAMO_${NAME_ENV}_TABLE_REGION`];
+const DYNAMO_ENDPOINT = process.env.DYNAMO_ENDPOINT;
+
 let loggerConfig = {
-  name: 'a11y-dashboard-webservice',
+  name: NAME,
   level: module.parent ? 'error' : 'info'
 };
 const logger = bunyan.createLogger(loggerConfig);
 
+logger.info('dynamo endpoint', DYNAMO_ENDPOINT);
+
+const server = new Hapi.Server();
+
 server.connection({
-    host: 'localhost',
+    host: '0.0.0.0',
     port: 8080
 });
 
@@ -38,8 +47,6 @@ server.route({
     method: 'POST',
     path:'/load',
     handler: (request, reply) => {
-      request.log('test', request.payload);
-      //request.log('x', request.payload);
       reply(request.payload);
     }
 });

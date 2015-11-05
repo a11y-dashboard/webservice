@@ -7,10 +7,15 @@
     "registry": "https://npm-private.atlassian.io"
   },
   "scripts": {
-    "start": "node . | bunyan -o short",
-    "micros": "node .",
-    "test": "./node_modules/.bin/mocha",
-    "tdd": "./node_modules/.bin/mocha --watch --reporter min"
+    "local": "node . | bunyan -o short",
+    "start": "node .",
+    "test": "mocha",
+    "test:watch": "ENDPOINT=`docker-machine ip default`:8080 mocha --watch --reporter min",
+    "test:watch:tdd": "sleep 5 && npm run test:watch",
+    "test:tdd": "parallelshell \"docker-compose up\" \"npm run test:watch:tdd\"",
+    "dev:local": "nodemon --exec \"npm run local\"",
+    "dev:local:docker": "npm run dev:local -- -L",
+    "docker:open": "open http://`docker-machine ip default`:8080/healthcheck"
   },
   "repository": {
     "type": "git",
@@ -26,7 +31,10 @@
     "hapi-bunyan": "^0.6.0"
   },
   "devDependencies": {
+    "chai": "^3.4.0",
     "mocha": "^2.3.3",
+    "nodemon": "^1.8.1",
+    "parallelshell": "^2.0.0",
     "supertest": "^1.1.0"
   }
 }

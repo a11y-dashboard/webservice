@@ -1,10 +1,18 @@
 webservice:
+  container_name: webservice
   build: .
+  volumes:
+    - .:/usr/src/app/:ro
   ports:
     - "8080:8080"
-  command: npm start
-dynamo:
-  ports:
-    - "8000:8000"
+  command: npm run dev:local:docker
+  environment:
+    - DYNAMO_ENDPOINT="http://dynamo:8000"
+  links:
+    - local-dynamo:dynamo
+local-dynamo:
+  container_name: dynamo
+  expose:
+    - "8000"
   image: tray/dynamodb-local
   command: -inMemory -port 8000

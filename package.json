@@ -9,13 +9,13 @@
   "scripts": {
     "local": "node . | bunyan -o short",
     "start": "node .",
-    "test": "mocha",
+    "test": "ENDPOINT=`docker-machine ip default`:8080 mocha",
     "test:watch": "ENDPOINT=`docker-machine ip default`:8080 mocha --watch --reporter min",
-    "test:watch:tdd": "sleep 5 && npm run test:watch",
-    "test:tdd": "parallelshell \"docker-compose up\" \"npm run test:watch:tdd\"",
+    "test:tdd": "parallelshell \"docker-compose up --force-recreate\" \"npm run test:watch\"",
     "dev:local": "nodemon --exec \"npm run local\"",
     "dev:local:docker": "npm run dev:local -- -L",
-    "docker:open": "open http://`docker-machine ip default`:8080/healthcheck"
+    "docker:open:webservice": "open http://`docker-machine ip default`:8080/healthcheck",
+    "docker:open:dynamo": "open http://`docker-machine ip default`:8000/shell"
   },
   "repository": {
     "type": "git",

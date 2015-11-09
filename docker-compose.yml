@@ -7,35 +7,20 @@ webservice:
     - "8080:8080"
   command: npm run dev:local:docker
   environment:
-    DYNAMO_ENDPOINT: http://dynamo:8000
-    DYNAMO_A11Y_DASHBOARD_WEBSERVICE_TABLE_NAME: results
-    DYNAMO_A11Y_DASHBOARD_WEBSERVICE_TABLE_REGION: local
+    PG_DB_URL: postgres://postgres:password@postgres:5432/results
     BUNYAN_LEVEL: debug
-    AWS_ACCESS_KEY_ID: foo
-    AWS_SECRET_ACCESS_KEY: bar
   links:
-    - local-dynamo:dynamo
-local-dynamo-create-table:
-  container_name: dynamo-create-table
-  image: garland/aws-cli-docker
+    - local-postgres:postgres
+local-postgres:
+  container_name: postgres
   environment:
-    AWS_ACCESS_KEY_ID: foo
-    AWS_SECRET_ACCESS_KEY: bar
-    AWS_DEFAULT_REGION: local
-  command: >
-    aws dynamodb create-table
-    --table-name results
-    --attribute-definitions AttributeName=key,AttributeType=S
-    --key-schema AttributeName=key,KeyType=HASH
-    --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1
-    --endpoint-url http://dynamo:8000
-  links:
-    - local-dynamo:dynamo
-local-dynamo:
-  container_name: dynamo
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: password
+    POSTGRES_DB: results
+  volumes:
+    - ./docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/:ro
   expose:
-    - "8000"
+    - "5432"
   ports:
-    - "8000:8000"
-  image: tray/dynamodb-local
-  command: -inMemory --sharedDb -port 8000
+    - "5432:5432"
+  image: postgres:9.4

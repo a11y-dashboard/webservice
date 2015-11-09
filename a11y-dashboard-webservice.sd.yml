@@ -15,5 +15,5 @@ owners:
   - jfeth@atlassian.com
 organization: Design-Core
 resources:
-- type: dynamo-db
-  name: results
+- type: postgres-db
+  name: db

@@ -1,0 +1,16 @@
+{
+  "origin": "WAC",
+  "timestamp": "2015-11-09T00:00:00.514Z",
+  "results": {
+    "https://www.atlassian.com/": [
+      {
+        "code": "Section508.L.PlaceholderAnchor",
+        "context": "<a href=\"\">Products</a>",
+        "message": "Anchor element found with link content, but no href, ID, or name attribute has been supplied.",
+        "selector": "#mainNav > ul > li:nth-child(1) > a",
+        "type": "warning",
+        "typeCode": 2
+      }
+    ]
+  }
+}

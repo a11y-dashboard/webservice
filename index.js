@@ -1,43 +1,40 @@
-'use strict';
-
 const Hapi = require('hapi');
+const Joi = require('joi');
 const bunyan = require('bunyan');
 const hapiBunyan = require('hapi-bunyan');
-const AWS = require('aws-sdk');
+const pgPromise = require('pg-promise');
+const transformer = require('./src/transformer');
 
 const NAME = 'a11y-dashboard-webservice';
-const NAME_ENV = NAME.toUpperCase().replace(/-/g,'_');
-const DYNAMO_TABLE_NAME = process.env[`DYNAMO_${NAME_ENV}_TABLE_NAME`];
-const DYNAMO_TABLE_REGION = process.env[`DYNAMO_${NAME_ENV}_TABLE_REGION`];
-const DYNAMO_ENDPOINT = process.env.DYNAMO_ENDPOINT;
+const PG_DB_URL = process.env[`PG_DB_URL`];
+const PG_DB_TABLE_PA11Y = 'pa11y';
 const BUNYAN_LEVEL = process.env.BUNYAN_LEVEL || bunyan.INFO;
 
 const logger = bunyan.createLogger({
   name: NAME,
-  level: BUNYAN_LEVEL
+  level: BUNYAN_LEVEL,
 });
 
-logger.debug('DYNAMO_TABLE_NAME', DYNAMO_TABLE_NAME);
-logger.debug('DYNAMO_ENDPOINT', DYNAMO_ENDPOINT);
-
-var dynamodb = new AWS.DynamoDB({
-  apiVersion: '2012-08-10',
-  endpoint: DYNAMO_ENDPOINT || undefined,
-  region: DYNAMO_TABLE_REGION || undefined,
-  logger: logger
+const pgp = pgPromise({
+  connect: (client) => logger.debug('Connected to database "%s"', client.connectionParameters.database),
+  disconnect: (client) => logger.debug('Disconnecting from database "%s"', client.connectionParameters.database),
+  error: (err, e) => logger.error(err, e),
 });
 
+logger.debug('PG_DB_URL', PG_DB_URL);
+
+const db = pgp(PG_DB_URL);
 const server = new Hapi.Server();
 
 server.connection({
-    host: '0.0.0.0',
-    port: 8080
+  host: '0.0.0.0',
+  port: 8080,
 });
 
-let config = {
+const config = {
   register: hapiBunyan,
   options: {
-    logger: logger
+    logger: logger,
   },
 };
 
@@ -46,34 +43,92 @@ server.register(config, (err) => {
 });
 
 server.route({
-    method: 'GET',
-    path:'/healthcheck',
-    handler: (request, reply) => reply('♥').type('text/plain')
+  method: 'GET',
+  path: '/healthcheck',
+  handler: (request, reply) => reply('♥').type('text/plain'),
 });
 
 server.route({
   method: 'GET',
-  path: '/test',
+  path: '/healthcheck.db',
   handler: (request, reply) => {
-    request.log('table', DYNAMO_TABLE_NAME)
-    dynamodb.describeTable({
-      TableName: DYNAMO_TABLE_NAME
-    }, (err, data) => {
-      if(err) throw err;
-      reply(data).type('application/json');
-    });
-  }
-})
+    db.query('SELECT $1::int AS number', ['1'])
+      .then(() => {
+        reply('♥').type('text/plain');
+      })
+      .catch((err) => {
+        request.log.error(err);
+        reply(err).code(500);
+      });
+  },
+});
 
 server.route({
-    method: 'POST',
-    path:'/load',
-    handler: (request, reply) => {
+  method: 'POST',
+  path: '/load.pa11y',
+  handler: (request, reply) => {
+    // future Joscha: use de-structuring here
+    const results = request.payload.results;
+    const timestamp = new Date(request.payload.timestamp);
+    const origin = request.payload.origin;
 
-      reply(request.payload);
-    }
+    const inserts = [];
+    db.tx((t) => {
+      Object.keys(results).map((url) => {
+        const reverseDnsNotation = transformer.urlToReverseDnsNotation(url);
+        const resultsPerUrl = results[url];
+        resultsPerUrl.forEach((result) => {
+          const insert = t.one(`
+          INSERT INTO ${PG_DB_TABLE_PA11Y}(
+            reverse_dns,
+            crawled,
+            original_url,
+            code,
+            context,
+            message,
+            selector,
+            level,
+            origin
+          ) values(
+            $<reverse_dns>,
+            $<crawled>,
+            $<original_url>,
+            $<code>,
+            $<context>,
+            $<message>,
+            $<selector>,
+            $<level>,
+            $<origin>
+          ) returning id
+          `,
+            {
+              reverse_dns: reverseDnsNotation,
+              crawled: pgp.as.date(timestamp),
+              original_url: url,
+              code: result.code,
+              context: result.context,
+              message: result.message,
+              selector: result.selector,
+              level: result.type,
+              origin: origin,
+            });
+          inserts.push(insert);
+        });
+      });
+      return t.batch(inserts);
+    })
+      .then(() => reply({ error: null }).code(201))
+      .catch((error) => reply({ error: error }).code(500));
+  },
+  config: {
+    validate: {
+      payload: Joi.object().keys({
+        origin: Joi.string().alphanum().min(3).required(),
+        timestamp: Joi.date().required(),
+        results: Joi.object().required(),
+      }).unknown(),
+    },
+  },
 });
 
 server.start(() => logger.info(`Server running at: ${server.info.uri}`));
-
-module.exports = server;

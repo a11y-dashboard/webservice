@@ -59,7 +59,7 @@ function kill_a11yws {
 trap kill_a11yws INT EXIT
 
 npm install wait-on
-`npm bin`/wait-on -t 30000 http://localhost:8080/healthcheck
+`npm bin`/wait-on -t 300000 tcp:8080
 
 ''')
 

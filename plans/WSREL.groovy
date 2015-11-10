@@ -76,10 +76,6 @@ deployment(name:'Deploy Accessibility Dashboard Webservice to Micros (Docker)',
       variable(key:'micros.token.password',override:'false',
          value:'<your password here>')
 
-      notification(type:'Deployment Finished',recipient:'hipchat',
-         apiKey:'${bamboo.atlassian.hipchat.apikey.password}',
-         notify:'false',room:'Design Platform')
-
       task(type:'addRequirement',description:'Require a Linux build agent to run scripts') {
          requirement(key:'os',condition:'equals',value:'Linux')
 

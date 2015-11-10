@@ -11,7 +11,7 @@ plan(key:'ADWT',name:'Accessibility Dashboard Webservice Tests',
 
    }
    stage(name:'Default Stage') {
-      job(key:'JOB1',name:'Default Job') {
+      job(key:'JOB1',name:'Unit tests',description:'This runs the unit tests') {
          artifactDefinition(name:'command.log',pattern:'command.log',shared:'false')
 
          task(type:'checkout',description:'Checkout atlassian/a11y-dashboard-webservice') {
@@ -20,6 +20,7 @@ plan(key:'ADWT',name:'Accessibility Dashboard Webservice Tests',
          }
          task(type:'script',description:'Free port 8080',
             scriptBody:'''
+
 
 #!/bin/bash
 PID=`lsof -i :$PORT|grep LISTEN|head -n1|tr -s \' \'|cut -d\' \' -f2`
@@ -31,6 +32,7 @@ else
 fi
 exit 0
 
+
 ''',
             environmentVariables:'PORT="8080"')
 
@@ -40,15 +42,18 @@ exit 0
          task(type:'script',description:'Install docker-compose',
             scriptBody:'''
 
+
 set -e
 curl -L -sS https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` -o docker-compose
 chmod u+x docker-compose
+
 
 ''',
             environmentVariables:'DOCKER_COMPOSE_VERSION="1.5.0"')
 
          task(type:'script',description:'Run composed docker service in background',
             scriptBody:'''
+
 
 set -e
 
@@ -61,6 +66,7 @@ trap kill_a11yws INT EXIT
 npm install wait-on
 `npm bin`/wait-on -t 300000 tcp:8080
 
+
 ''')
 
          task(type:'npm',description:'Run tests',command:'run bamboo',
@@ -70,6 +76,14 @@ npm install wait-on
             description:'Parse tests',final:'true',testPattern:'mocha.json')
 
       }
+   }
+   branchMonitoring() {
+      createBranch()
+
+      inactiveBranchCleanup(periodInDays:'30')
+
+      deletedBranchCleanup(periodInDays:'7')
+
    }
    dependencies(triggerForBranches:'true') {
       childPlan(planKey:'A11Y-WSREL')

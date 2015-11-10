@@ -1,6 +1,6 @@
 {
   "name": "@atlassian/a11y-dashboard-webservice",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Webservice for the a11y dashboard",
   "main": "index.js",
   "publishConfig": {

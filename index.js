@@ -4,6 +4,7 @@ const bunyan = require('bunyan');
 const hapiBunyan = require('hapi-bunyan');
 const pgPromise = require('pg-promise');
 const transformer = require('./src/transformer');
+const fs = require('fs');
 
 const NAME = 'a11y-dashboard-webservice';
 const PG_DB_URL = process.env[`PG_DB_URL`];
@@ -15,15 +16,17 @@ const logger = bunyan.createLogger({
   level: BUNYAN_LEVEL,
 });
 
+logger.debug('PG_DB_URL', PG_DB_URL);
+
 const pgp = pgPromise({
   connect: (client) => logger.debug('Connected to database "%s"', client.connectionParameters.database),
   disconnect: (client) => logger.debug('Disconnecting from database "%s"', client.connectionParameters.database),
   error: (err, e) => logger.error(err, e),
 });
-
-logger.debug('PG_DB_URL', PG_DB_URL);
-
 const db = pgp(PG_DB_URL);
+
+db.query(fs.readFileSync('./docker-entrypoint-initdb.d/INIT.sql', 'utf8')).catch((err) => logger.error(err));
+
 const server = new Hapi.Server();
 
 server.connection({
@@ -67,7 +70,6 @@ server.route({
   method: 'POST',
   path: '/load.pa11y',
   handler: (request, reply) => {
-    // future Joscha: use de-structuring here
     const results = request.payload.results;
     const timestamp = new Date(request.payload.timestamp);
     const origin = request.payload.origin;
@@ -78,7 +80,7 @@ server.route({
         const reverseDnsNotation = transformer.urlToReverseDnsNotation(url);
         const resultsPerUrl = results[url];
         resultsPerUrl.forEach((result) => {
-          const insert = t.one(`
+          const insert = t.none(`
           INSERT INTO ${PG_DB_TABLE_PA11Y}(
             reverse_dns,
             crawled,
@@ -89,7 +91,7 @@ server.route({
             selector,
             level,
             origin
-          ) values(
+          ) VALUES (
             $<reverse_dns>,
             $<crawled>,
             $<original_url>,
@@ -99,7 +101,7 @@ server.route({
             $<selector>,
             $<level>,
             $<origin>
-          ) returning id
+          )
           `,
             {
               reverse_dns: reverseDnsNotation,
@@ -121,6 +123,8 @@ server.route({
       .catch((error) => reply({ error: error }).code(500));
   },
   config: {
+    description: 'This allows you to bulk-load results from pa11y-crawler.',
+    tags: ['api', 'bulk'],
     validate: {
       payload: Joi.object().keys({
         origin: Joi.string().alphanum().min(3).required(),

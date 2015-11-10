@@ -85,7 +85,7 @@ npm install wait-on
       deletedBranchCleanup(periodInDays:'7')
 
    }
-   dependencies(triggerForBranches:'true') {
+   dependencies(blockingStrategy:'blockIfUnbuildChanges',triggerForBranches:'true') {
       childPlan(planKey:'A11Y-WSREL')
 
    }

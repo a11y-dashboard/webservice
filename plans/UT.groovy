@@ -4,6 +4,8 @@ plan(key:'ADWT',name:'Accessibility Dashboard Webservice Tests',
 
    repository(name:'Accessibility Dashboard Webservice')
 
+   label(name:'plan-templates')
+
    trigger(type:'polling',strategy:'periodically',frequency:'180') {
       repository(name:'Accessibility Dashboard Webservice')
 
@@ -18,6 +20,7 @@ plan(key:'ADWT',name:'Accessibility Dashboard Webservice Tests',
          }
          task(type:'script',description:'Free port 8080',
             scriptBody:'''
+
 #!/bin/bash
 PID=`lsof -i :$PORT|grep LISTEN|head -n1|tr -s \' \'|cut -d\' \' -f2`
 if [ -z "$PID" ] ; then
@@ -27,6 +30,7 @@ else
     echo "Killed $PID occupying port $PORT"
 fi
 exit 0
+
 ''',
             environmentVariables:'PORT="8080"')
 
@@ -35,14 +39,17 @@ exit 0
 
          task(type:'script',description:'Install docker-compose',
             scriptBody:'''
+
 set -e
 curl -L -sS https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` -o docker-compose
 chmod u+x docker-compose
+
 ''',
             environmentVariables:'DOCKER_COMPOSE_VERSION="1.5.0"')
 
          task(type:'script',description:'Run composed docker service in background',
             scriptBody:'''
+
 set -e
 
 screen -S a11yws -d -m bash -c "./docker-compose stop && ./docker-compose rm -f && ./docker-compose up 2>&1|tee command.log"
@@ -53,6 +60,7 @@ trap kill_a11yws INT EXIT
 
 npm install wait-on
 `npm bin`/wait-on -t 30000 http://localhost:8080/healthcheck
+
 ''')
 
          task(type:'npm',description:'Run tests',command:'run bamboo',
@@ -63,12 +71,14 @@ npm install wait-on
 
       }
    }
-   dependencies(triggerForBranches:'true')
+   dependencies(triggerForBranches:'true') {
+      childPlan(planKey:'A11Y-WSREL')
 
+   }
    permissions() {
-      loggedInUser(permissions:'read,write,build,clone,administration')
-
       anonymous(permissions:'read')
+
+      loggedInUser(permissions:'read,write,build,clone,administration')
 
    }
 }

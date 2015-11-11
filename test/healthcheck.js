@@ -3,7 +3,7 @@ const chai = require('chai');
 chai.should();
 
 const ENDPOINT = process.env.ENDPOINT;
-const URL = `http://${ENDPOINT}`;
+const URL = `http://${ENDPOINT}:8080`;
 
 describe('Server', () => {
   describe('GET /healthcheck', () => {

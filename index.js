@@ -1,31 +1,15 @@
+'use strict';
+
 const Hapi = require('hapi');
 const Joi = require('joi');
-const bunyan = require('bunyan');
 const hapiBunyan = require('hapi-bunyan');
-const pgPromise = require('pg-promise');
 const transformer = require('./src/transformer');
 const fs = require('fs');
+const dbal = require('./src/dbal');
+const logger = require('./src/logger');
+const INIT_SCRIPT = fs.readFileSync('./docker-entrypoint-initdb.d/INIT.sql', 'utf8');
 
-const NAME = 'a11y-dashboard-webservice';
-const PG_DB_URL = process.env[`PG_DB_URL`];
-const PG_DB_TABLE_PA11Y = 'pa11y';
-const BUNYAN_LEVEL = process.env.BUNYAN_LEVEL || bunyan.INFO;
-
-const logger = bunyan.createLogger({
-  name: NAME,
-  level: BUNYAN_LEVEL,
-});
-
-logger.debug('PG_DB_URL', PG_DB_URL);
-
-const pgp = pgPromise({
-  connect: (client) => logger.debug('Connected to database "%s"', client.connectionParameters.database),
-  disconnect: (client) => logger.debug('Disconnecting from database "%s"', client.connectionParameters.database),
-  error: (err, e) => logger.error(err, e),
-});
-const db = pgp(PG_DB_URL);
-
-db.query(fs.readFileSync('./docker-entrypoint-initdb.d/INIT.sql', 'utf8')).catch((err) => logger.error(err));
+dbal.db().query(INIT_SCRIPT).catch((err) => logger.error(err));
 
 const server = new Hapi.Server();
 
@@ -55,13 +39,46 @@ server.route({
   method: 'GET',
   path: '/healthcheck.db',
   handler: (request, reply) => {
-    db.query('SELECT $1::int AS number', ['1'])
+    dbal.db().query('SELECT $1::int AS number', ['1'])
       .then(() => {
-        reply('♥').type('text/plain');
+        return reply('♥').type('text/plain');
       })
       .catch((err) => {
         request.log.error(err);
-        reply(err).code(500);
+        return reply(err).code(500);
+      });
+  },
+});
+
+server.route({
+  method: 'GET',
+  path: '/overview',
+  handler: (request, reply) => {
+    dbal.db().query(`
+      SELECT
+        origin,
+        extract(epoch from crawled) * 1000 as timestamp,
+        split_part(code, '.', 1) as standard,
+        level,
+        COUNT(*) as count
+      FROM
+        ${dbal.tables.PA11Y}
+      GROUP BY origin, crawled, standard, level
+      ORDER BY origin, crawled DESC, standard, level;
+      `)
+      .then((data) => {
+        const result = {};
+        data.forEach((row) => {
+          const project = result[row.origin] = result[row.origin] || {datapoints: {}};
+          const datapoints = project.datapoints[row.timestamp] = project.datapoints[row.timestamp] || {};
+          const standard = datapoints[row.standard] = datapoints[row.standard] || {};
+          standard[row.level] = row.count;
+        });
+        return reply(result);
+      })
+      .catch((err) => {
+        request.log.error(err);
+        return reply(null, err);
       });
   },
 });
@@ -74,14 +91,23 @@ server.route({
     const timestamp = new Date(request.payload.timestamp);
     const origin = request.payload.origin;
 
-    const inserts = [];
-    db.tx((t) => {
+    dbal.db().tx((t) => {
+      const queries = [
+        dbal.db().query(`
+          DELETE FROM
+            ${dbal.tables.PA11Y}
+          WHERE
+            origin=$1
+          AND
+            crawled=$2;
+          `, [origin, dbal.pgp.as.date(timestamp)]),
+      ];
       Object.keys(results).map((url) => {
         const reverseDnsNotation = transformer.urlToReverseDnsNotation(url);
         const resultsPerUrl = results[url];
         resultsPerUrl.forEach((result) => {
           const insert = t.none(`
-          INSERT INTO ${PG_DB_TABLE_PA11Y}(
+          INSERT INTO ${dbal.tables.PA11Y}(
             reverse_dns,
             crawled,
             original_url,
@@ -101,11 +127,11 @@ server.route({
             $<selector>,
             $<level>,
             $<origin>
-          )
+          );
           `,
             {
               reverse_dns: reverseDnsNotation,
-              crawled: pgp.as.date(timestamp),
+              crawled: dbal.pgp.as.date(timestamp),
               original_url: url,
               code: result.code,
               context: result.context,
@@ -114,13 +140,13 @@ server.route({
               level: result.type,
               origin: origin,
             });
-          inserts.push(insert);
+          queries.push(insert);
         });
       });
-      return t.batch(inserts);
+      return t.batch(queries);
     })
       .then(() => reply({ error: null }).code(201))
-      .catch((error) => reply({ error: error }).code(500));
+      .catch((error) => reply(null, error));
   },
   config: {
     description: 'This allows you to bulk-load results from pa11y-crawler.',

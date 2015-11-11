@@ -9,8 +9,8 @@
   "scripts": {
     "local": "node . | bunyan -o short",
     "start": "node .",
-    "bamboo": "ENDPOINT=localhost:8080 mocha --reporter mocha-bamboo-reporter",
-    "test": "ENDPOINT=`docker-machine ip default`:8080 mocha",
+    "bamboo": ". ./test/.env.bamboo && mocha --reporter mocha-bamboo-reporter",
+    "test": ". ./test/.env.local && mocha",
     "test:watch": "npm test -- --watch --reporter min",
     "test:tdd": "parallelshell \"docker-compose up --force-recreate\" \"npm run test:watch\"",
     "dev:local": "nodemon --exec \"npm run local\"",

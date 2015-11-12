@@ -23,6 +23,8 @@ plan(key:'WSREL',name:'Release Accessibility Dashboard Webservice to Micros (Doc
          artifactDefinition(name:'service-descriptor',pattern:'service-descriptor.*',
             shared:'true')
 
+         bitbucket_build_status_start_task()
+
          task(type:'checkout',description:'Checkout Accessibility Dashboard Webservice repository') {
             repository(name:'Accessibility Dashboard Webservice')
 
@@ -51,6 +53,10 @@ fi
             pushRepository:'docker.atlassian.io/atlassian/a11y-dashboard-webservice',
             dockerfileOption:'inline')
 
+          bitbucket_build_status_register_success_task()
+
+          bitbucket_build_status_query_success_task()
+
       }
    }
    dependencies(blockingStrategy:'blockIfUnbuildChanges')
@@ -76,6 +82,8 @@ deployment(name:'Deploy Accessibility Dashboard Webservice to Micros (Docker)',
       variable(key:'micros.token.password',override:'false',
          value:'<your password here>')
 
+      bitbucket_build_status_custom(type:'init',message:'Deploy: ddev: started')
+
       task(type:'addRequirement',description:'Require a Linux build agent to run scripts') {
          requirement(key:'os',condition:'equals',value:'Linux')
 
@@ -95,6 +103,11 @@ deployment(name:'Deploy Accessibility Dashboard Webservice to Micros (Docker)',
       task(type:'artifactDownload',description:'Get release record',
          planKey:'A11Y-WSREL') {
          artifact(name:'all artifacts',localPath:'service')
+
+      bitbucket_build_status_register_success_task()
+      bitbucket_build_status_query_success_task_with_message(
+        success_message:'Deploy: ddev: success',
+        fail_message:'Deploy: ddev: failure')
 
       }
    }

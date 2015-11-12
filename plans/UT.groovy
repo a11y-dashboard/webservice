@@ -14,6 +14,8 @@ plan(key:'ADWT',name:'Accessibility Dashboard Webservice Tests',
       job(key:'JOB1',name:'Unit tests',description:'This runs the unit tests') {
          artifactDefinition(name:'command.log',pattern:'command.log',shared:'false')
 
+         bitbucket_build_status_start_task()
+
          task(type:'checkout',description:'Checkout atlassian/a11y-dashboard-webservice') {
             repository(name:'Accessibility Dashboard Webservice')
 
@@ -72,9 +74,13 @@ npm install wait-on
          task(type:'npm',description:'Run tests',command:'run bamboo',
             executable:'Node.js 4.2')
 
-         task(type:'custom',createTaskKey:'com.atlassian.bamboo.plugins.bamboo-nodejs-plugin:task.reporter.mocha',
-            description:'Parse tests',final:'true',testPattern:'mocha.json')
+         task(type:'jUnitParser',description:'Unit test results',
+            final:'true',resultsDirectory:'*.xml')
 
+         bitbucket_build_status_end_task(
+            type: 'xunit',
+            xunit_path: 'test-results.xml'
+         )
       }
    }
    branchMonitoring() {

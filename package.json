@@ -9,7 +9,7 @@
   "scripts": {
     "local": "node . | bunyan -o short",
     "start": "node .",
-    "bamboo": ". ./test/.env.bamboo && mocha --reporter mocha-bamboo-reporter",
+    "bamboo": ". ./test/.env.bamboo && mocha --reporter mocha-junit-reporter",
     "test": ". ./test/.env.local && mocha",
     "test:watch": "npm test -- --watch --reporter min",
     "test:tdd": "parallelshell \"docker-compose up --force-recreate\" \"npm run test:watch\"",
@@ -37,7 +37,7 @@
     "eslint": "^1.9.0",
     "eslint-config-airbnb": "^1.0.0",
     "mocha": "^2.3.3",
-    "mocha-bamboo-reporter": "^1.1.0",
+    "mocha-junit-reporter": "^1.9.0",
     "nodemon": "^1.8.1",
     "parallelshell": "^2.0.0",
     "supertest": "^1.1.0",

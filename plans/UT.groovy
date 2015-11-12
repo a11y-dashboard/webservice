@@ -72,8 +72,8 @@ npm install wait-on
          task(type:'npm',description:'Run tests',command:'run bamboo',
             executable:'Node.js 4.2')
 
-         task(type:'custom',createTaskKey:'com.atlassian.bamboo.plugins.bamboo-nodejs-plugin:task.reporter.mocha',
-            description:'Parse tests',final:'true',testPattern:'mocha.json')
+         task(type:'jUnitParser',description:'Unit test results',
+            final:'true',resultsDirectory:'*.xml')
 
       }
    }

@@ -82,12 +82,17 @@ deployment(name:'Deploy Accessibility Dashboard Webservice to Micros (Docker)',
       variable(key:'micros.token.password',override:'false',
          value:'<your password here>')
 
-      bitbucket_build_status_custom(type:'init',message:'Deploy: ddev: started')
-
       task(type:'addRequirement',description:'Require a Linux build agent to run scripts') {
          requirement(key:'os',condition:'equals',value:'Linux')
 
       }
+      task(type:'addRequirement',description:'Require Python') {
+         requirement(key:'system.builder.command.Python',condition:'exists')
+
+      }
+
+      bitbucket_build_status_custom(type:'init',message:'Deploy: ddev: started')
+
       task(type:'artifactDownload',description:'Get service descriptor',
          planKey:'A11Y-WSREL') {
          artifact(name:'service-descriptor',localPath:'service')

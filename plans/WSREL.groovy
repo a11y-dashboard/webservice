@@ -108,13 +108,12 @@ deployment(name:'Deploy Accessibility Dashboard Webservice to Micros (Docker)',
       task(type:'artifactDownload',description:'Get release record',
          planKey:'A11Y-WSREL') {
          artifact(name:'all artifacts',localPath:'service')
+      }
 
       bitbucket_build_status_register_success_task()
       bitbucket_build_status_query_success_task_with_message(
         success_message:'Deploy: ddev: success',
         fail_message:'Deploy: ddev: failure')
-
-      }
    }
    environment(name:'Application Development (a11y-dashboard-webservice)',
       description:'Application Development (a11y-dashboard-webservice) domain service environment') {

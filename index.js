@@ -53,6 +53,9 @@ server.route({
 server.route({
   method: 'GET',
   path: '/overview',
+  config: {
+    cors: true,
+  },
   handler: (request, reply) => {
     dbal.db().query(`
       SELECT

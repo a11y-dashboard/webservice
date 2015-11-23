@@ -153,7 +153,7 @@ server.route({
   },
   config: {
     payload: {
-      maxBytes: 1024 * 1024 * 20, // 20 MB
+      maxBytes: 1024 * 1024 * 50, // 20 MB
     },
     description: 'This allows you to bulk-load results from pa11y-crawler.',
     tags: ['api', 'bulk'],

@@ -59,15 +59,15 @@ server.route({
   handler: (request, reply) => {
     dbal.db().query(`
       SELECT
-        origin,
+        origin_project,
         extract(epoch from crawled) * 1000 as timestamp,
         split_part(code, '.', 1) as standard,
         level,
         COUNT(*) as count
       FROM
         ${dbal.tables.A11Y}
-      GROUP BY origin, crawled, standard, level
-      ORDER BY origin, crawled DESC, standard, level;
+      GROUP BY origin_project, crawled, standard, level
+      ORDER BY origin_project, crawled DESC, standard, level;
       `)
       .then((data) => {
         const result = {};
@@ -100,7 +100,7 @@ server.route({
           DELETE FROM
             ${dbal.tables.A11Y}
           WHERE
-            origin=$1
+            origin_project=$1
           AND
             crawled=$2;
           `, [origin, dbal.pgp.as.date(timestamp)]),
@@ -119,7 +119,7 @@ server.route({
             message,
             selector,
             level,
-            origin
+            origin_project
           ) VALUES (
             $<reverse_dns>,
             $<crawled>,
@@ -129,7 +129,7 @@ server.route({
             $<message>,
             $<selector>,
             $<level>,
-            $<origin>
+            $<origin_project>
           );
           `,
             {
@@ -141,7 +141,7 @@ server.route({
               message: result.message,
               selector: result.selector,
               level: result.type,
-              origin: origin,
+              origin_project: origin,
             });
           queries.push(insert);
         });

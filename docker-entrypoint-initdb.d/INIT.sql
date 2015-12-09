@@ -61,9 +61,9 @@ IF NOT EXISTS (
 END IF;
 END$$;
 
--- Index: a11y_origin_idx
+-- Index: a11y_origin_project_idx
 
--- DROP INDEX a11y_origin_idx;
+-- DROP INDEX a11y_origin_project_idx;
 DO $$
 BEGIN
 IF NOT EXISTS (
@@ -71,13 +71,13 @@ IF NOT EXISTS (
     FROM   pg_class
     JOIN   pg_namespace
     ON pg_namespace.oid = pg_class.relnamespace
-    WHERE  pg_class.relname = 'a11y_origin_idx'
+    WHERE  pg_class.relname = 'a11y_origin_project_idx'
     AND    pg_namespace.nspname = 'public'
     ) THEN
-    CREATE INDEX a11y_origin_idx
+    CREATE INDEX a11y_origin_project_idx
       ON a11y
       USING btree
-      (origin COLLATE pg_catalog."default");
+      (origin_project COLLATE pg_catalog."default");
 END IF;
 END$$;
 
@@ -98,6 +98,24 @@ IF NOT EXISTS (
       ON a11y
       USING btree
       (level);
+END IF;
+END$$;
+
+-- DROP INDEX a11y_origin_library_idx;
+DO $$
+BEGIN
+IF NOT EXISTS (
+    SELECT 1
+    FROM   pg_class
+    JOIN   pg_namespace
+    ON pg_namespace.oid = pg_class.relnamespace
+    WHERE  pg_class.relname = 'a11y_origin_library_idx'
+    AND    pg_namespace.nspname = 'public'
+    ) THEN
+    CREATE INDEX a11y_origin_library_idx
+      ON a11y
+      USING btree
+      (origin_library);
 END IF;
 END$$;
 

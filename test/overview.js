@@ -19,7 +19,7 @@ describe('Server', () => {
           const overviewFixture = require('./fixtures/WAC_results_overview.json');
 
           request(URL)
-            .post('/load.a11y')
+            .post('/load.crawlkit')
             .send(results)
             .expect(201, () => {
               request(URL)

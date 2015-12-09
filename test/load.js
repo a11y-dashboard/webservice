@@ -7,10 +7,10 @@ const ENDPOINT = process.env.ENDPOINT;
 const URL = `http://${ENDPOINT}:8080`;
 
 describe('Server', () => {
-  describe('POST /load.a11y', () => {
+  describe('POST /load.crawlkit', () => {
     it('should fail if results are missing', (done) => {
       request(URL)
-        .post('/load.a11y')
+        .post('/load.crawlkit')
         .send({
           timestamp: new Date().toString(),
           origin: 'XXX',
@@ -20,7 +20,7 @@ describe('Server', () => {
 
     it('should fail if timestamp is missing', (done) => {
       request(URL)
-        .post('/load.a11y')
+        .post('/load.crawlkit')
         .send({
           origin: 'XXX',
           results: {},
@@ -30,7 +30,7 @@ describe('Server', () => {
 
     it('should fail if origin is missing', (done) => {
       request(URL)
-        .post('/load.a11y')
+        .post('/load.crawlkit')
         .send({
           timestamp: new Date().toString(),
           results: {},
@@ -40,7 +40,7 @@ describe('Server', () => {
 
     it('should fail if origin has wrong format', (done) => {
       request(URL)
-        .post('/load.a11y')
+        .post('/load.crawlkit')
         .send({
           timestamp: new Date().toString(),
           results: {},
@@ -51,7 +51,7 @@ describe('Server', () => {
 
     it('should fail if timestamp has wrong format', (done) => {
       request(URL)
-        .post('/load.a11y')
+        .post('/load.crawlkit')
         .send({
           timestamp: 'notadate',
           results: {},
@@ -64,7 +64,7 @@ describe('Server', () => {
       const results = require('./fixtures/single_result.json');
 
       request(URL)
-        .post('/load.a11y')
+        .post('/load.crawlkit')
         .send(results)
         .expect('Content-Type', /json/)
         .expect(201, {
@@ -77,7 +77,7 @@ describe('Server', () => {
       results.unknown = true;
 
       request(URL)
-        .post('/load.a11y')
+        .post('/load.crawlkit')
         .send(results)
         .expect('Content-Type', /json/)
         .expect(201, {
@@ -91,7 +91,7 @@ describe('Server', () => {
       results.origin = 'WAC';
 
       request(URL)
-        .post('/load.a11y')
+        .post('/load.crawlkit')
         .send(results)
         .expect('Content-Type', /json/)
         .expect(201, {
@@ -106,7 +106,7 @@ describe('Server', () => {
 
       function load(cb) {
         request(URL)
-          .post('/load.a11y')
+          .post('/load.crawlkit')
           .send(result)
           .expect(201, cb);
       }
@@ -118,7 +118,7 @@ describe('Server', () => {
           FROM
             ${dbal.tables.A11Y}
           WHERE
-            origin=$1 AND crawled=$2
+            origin_project=$1 AND crawled=$2
         `, [result.origin, dbal.pgp.as.date(new Date(result.timestamp))])
           .then((data) => {
             parseInt(data.count, 10).should.equal(1);

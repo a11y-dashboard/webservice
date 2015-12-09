@@ -7,6 +7,7 @@
     "registry": "https://npm-private.atlassian.io"
   },
   "scripts": {
+    "lint": "eslint .",
     "local": "node . | bunyan -o short",
     "start": "node .",
     "bamboo": ". ./test/.env.bamboo && mocha --reporter mocha-junit-reporter",

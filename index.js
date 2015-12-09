@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; // eslint-disable-line
 
 const Hapi = require('hapi');
 const Joi = require('joi');
@@ -72,7 +72,7 @@ server.route({
       .then((data) => {
         const result = {};
         data.forEach((row) => {
-          const project = result[row.origin] = result[row.origin] || {datapoints: {}};
+          const project = result[row.origin] = result[row.origin] || { datapoints: {} };
           const datapoints = project.datapoints[row.timestamp] = project.datapoints[row.timestamp] || {};
           const standard = datapoints[row.standard] = datapoints[row.standard] || {};
           standard[row.level] = row.count;

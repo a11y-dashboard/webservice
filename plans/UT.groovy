@@ -41,6 +41,9 @@ exit 0
          task(type:'npm',description:'Install dependencies',
             command:'install',executable:'Node.js 4.2')
 
+        task(type:'npm',description:'Lint code',
+           command:'run lint',executable:'Node.js 4.2')
+
          task(type:'script',description:'Install docker-compose',
             scriptBody:'''
 

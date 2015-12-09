@@ -11,6 +11,35 @@ function urlToReverseDnsNotation(u) {
   return `${reversedHost}${port}${parts.path}`;
 }
 
+const NOTICE = 'notice';
+const WARNING = 'warning';
+const ERROR = 'error';
+
+function normalizeA11yDevTools(result) {
+  const ret = [];
+
+  function transformResult(targetLevel, items) {
+    items.forEach((item) => {
+      item.elements.forEach((culprit) => {
+        ret.push({
+          type: targetLevel,
+          code: item.code,
+          selector: culprit.selector,
+          context: culprit.context,
+          helpUrl: item.helpUrl,
+          msg: item.msg,
+        });
+      });
+    });
+  }
+
+  transformResult(WARNING, result.warnings);
+  transformResult(ERROR, result.errors);
+
+  return ret;
+}
+
 module.exports = {
   urlToReverseDnsNotation,
+  normalizeA11yDevTools,
 };

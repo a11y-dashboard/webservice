@@ -1,0 +1,178 @@
+[
+  {
+    "type": "warning",
+    "code": "AX_FOCUS_01",
+    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI > .pricing",
+    "context": "<a href=\"/pricing\" title=\"Pricing\" class=\"pricing\">Pricing</a>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_focus_01",
+    "msg": "These elements are focusable but either invisible or obscured by another element"
+  },
+  {
+    "type": "warning",
+    "code": "AX_FOCUS_01",
+    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(2) > .integrations",
+    "context": "<a href=\"/integrations\" title=\"Integrations\" class=\"integrations\">Integrations</a>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_focus_01",
+    "msg": "These elements are focusable but either invisible or obscured by another element"
+  },
+  {
+    "type": "warning",
+    "code": "AX_FOCUS_01",
+    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(3) > .server",
+    "context": "<a href=\"/server\" title=\"Server\" class=\"server\">Server</a>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_focus_01",
+    "msg": "These elements are focusable but either invisible or obscured by another element"
+  },
+  {
+    "type": "warning",
+    "code": "AX_FOCUS_01",
+    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(4) > .downloads > A",
+    "context": "<a href=\"/downloads\" title=\"Downloads\">Downloads</a>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_focus_01",
+    "msg": "These elements are focusable but either invisible or obscured by another element"
+  },
+  {
+    "type": "warning",
+    "code": "AX_FOCUS_01",
+    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(5) > .cms-link",
+    "context": "<a href=\"https://www.hipchat.com/sign_in\" class=\"cms-link\"> Log in </a>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_focus_01",
+    "msg": "These elements are focusable but either invisible or obscured by another element"
+  },
+  {
+    "type": "warning",
+    "code": "AX_TEXT_02",
+    "selector": "#ui-video > .overflow",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/05/columns/00/content/00/localUpload/osx-client-confluence.png.png\" class=\"overflow\" style=\"left: 70px;top: -25px;\">",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_text_02",
+    "msg": "Images should have a text alternative or presentational role"
+  },
+  {
+    "type": "warning",
+    "code": "AX_TEXT_02",
+    "selector": "#run-on-everything > .column.colspan-1.text-left > IMG",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/06/columns/00/content/00/localUpload/os.svg.svg\" height=\"25px\">",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_text_02",
+    "msg": "Images should have a text alternative or presentational role"
+  },
+  {
+    "type": "warning",
+    "code": "AX_TEXT_02",
+    "selector": "MAIN > .integrations-fun.text-left > .grid.grid-2.vertical-padding-standard > .column.colspan-1.text-left > IMG",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/01/localUpload/integrations.png.png\" height=\"25px\">",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_text_02",
+    "msg": "Images should have a text alternative or presentational role"
+  },
+  {
+    "type": "warning",
+    "code": "AX_TEXT_02",
+    "selector": "MAIN > .integrations-fun.text-left > .grid.grid-2.vertical-padding-standard > .column.colspan-1.text-left > IMG:nth-of-type(2)",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/02/localUpload/fun.png.png\" height=\"25px\">",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_text_02",
+    "msg": "Images should have a text alternative or presentational role"
+  },
+  {
+    "type": "warning",
+    "code": "AX_TEXT_02",
+    "selector": "MAIN > .lock-down.blue.dark.text-left > .grid.grid-2.vertical-gutters-standard.vertical-padding-large > DIV:nth-of-type(2) > IMG",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:1534f97a-f9b1-4609-a7b2-c214bd1a4127/key.svg\">",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_text_02",
+    "msg": "Images should have a text alternative or presentational role"
+  },
+  {
+    "type": "warning",
+    "code": "AX_TEXT_04",
+    "selector": "body > .hipchat > .grid > .aui-icon.aui-icon-small.aui-iconfont-appswitcher.menu-toggle",
+    "context": "<a href=\"#\" class=\"aui-icon aui-icon-small aui-iconfont-appswitcher menu-toggle\"></a>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_text_04",
+    "msg": "The purpose of each link should be clear from the link text"
+  },
+  {
+    "type": "warning",
+    "code": "AX_TEXT_04",
+    "selector": "body > .hipchat > .grid > NAV > .nav-inner > .secondary-links > LI:nth-of-type(4) > .about",
+    "context": "<a href=\"/about\" title=\"About\" class=\"about\">About</a>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_text_04",
+    "msg": "The purpose of each link should be clear from the link text"
+  },
+  {
+    "type": "warning",
+    "code": "AX_COLOR_01",
+    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI > .pricing",
+    "context": "<a href=\"/pricing\" title=\"Pricing\" class=\"pricing\">Pricing</a>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_color_01",
+    "msg": "Text elements should have a reasonable contrast ratio"
+  },
+  {
+    "type": "warning",
+    "code": "AX_COLOR_01",
+    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(2) > .integrations",
+    "context": "<a href=\"/integrations\" title=\"Integrations\" class=\"integrations\">Integrations</a>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_color_01",
+    "msg": "Text elements should have a reasonable contrast ratio"
+  },
+  {
+    "type": "warning",
+    "code": "AX_COLOR_01",
+    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(3) > .server",
+    "context": "<a href=\"/server\" title=\"Server\" class=\"server\">Server</a>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_color_01",
+    "msg": "Text elements should have a reasonable contrast ratio"
+  },
+  {
+    "type": "warning",
+    "code": "AX_COLOR_01",
+    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(4) > .downloads > A",
+    "context": "<a href=\"/downloads\" title=\"Downloads\">Downloads</a>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_color_01",
+    "msg": "Text elements should have a reasonable contrast ratio"
+  },
+  {
+    "type": "warning",
+    "code": "AX_COLOR_01",
+    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(5) > .cms-link",
+    "context": "<a href=\"https://www.hipchat.com/sign_in\" class=\"cms-link\"> Log in </a>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_color_01",
+    "msg": "Text elements should have a reasonable contrast ratio"
+  },
+  {
+    "type": "warning",
+    "code": "AX_IMAGE_01",
+    "selector": "MAIN > .liberate-yourself.text-left > .grid.grid-6 > .on-a-call > .available.person2",
+    "context": "<span title=\"Available\" class=\"available person2\"></span>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_image_01",
+    "msg": "Meaningful images should not be used in element backgrounds"
+  },
+  {
+    "type": "warning",
+    "code": "AX_IMAGE_01",
+    "selector": "MAIN > .liberate-yourself.text-left > .grid.grid-6 > .on-a-call > .idle.person2",
+    "context": "<span title=\"Idle\" class=\"idle person2\"></span>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_image_01",
+    "msg": "Meaningful images should not be used in element backgrounds"
+  },
+  {
+    "type": "warning",
+    "code": "AX_IMAGE_01",
+    "selector": "MAIN > .liberate-yourself.text-left > .grid.grid-6 > .on-a-call > SPAN:nth-of-type(3)",
+    "context": "<span title=\"On a call\" class=\"person2\"></span>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_image_01",
+    "msg": "Meaningful images should not be used in element backgrounds"
+  },
+  {
+    "type": "warning",
+    "code": "AX_IMAGE_01",
+    "selector": "MAIN > .liberate-yourself.text-left > .grid.grid-6 > .wfh > .person1",
+    "context": "<span title=\"Work from home\" class=\"person1\"></span>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_image_01",
+    "msg": "Meaningful images should not be used in element backgrounds"
+  },
+  {
+    "type": "warning",
+    "code": "AX_IMAGE_01",
+    "selector": "MAIN > .liberate-yourself.text-left > .grid.grid-6 > .meeting > .person3",
+    "context": "<span title=\"Meeting\" class=\"person3\"></span>",
+    "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_image_01",
+    "msg": "Meaningful images should not be used in element backgrounds"
+  }
+]

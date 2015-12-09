@@ -65,7 +65,7 @@ server.route({
         level,
         COUNT(*) as count
       FROM
-        ${dbal.tables.PA11Y}
+        ${dbal.tables.A11Y}
       GROUP BY origin, crawled, standard, level
       ORDER BY origin, crawled DESC, standard, level;
       `)
@@ -88,7 +88,7 @@ server.route({
 
 server.route({
   method: 'POST',
-  path: '/load.pa11y',
+  path: '/load.crawlkit',
   handler: (request, reply) => {
     const results = request.payload.results;
     const timestamp = new Date(request.payload.timestamp);
@@ -98,7 +98,7 @@ server.route({
       const queries = [
         dbal.db().query(`
           DELETE FROM
-            ${dbal.tables.PA11Y}
+            ${dbal.tables.A11Y}
           WHERE
             origin=$1
           AND
@@ -110,7 +110,7 @@ server.route({
         const resultsPerUrl = results[url];
         resultsPerUrl.forEach((result) => {
           const insert = t.none(`
-          INSERT INTO ${dbal.tables.PA11Y}(
+          INSERT INTO ${dbal.tables.A11Y}(
             reverse_dns,
             crawled,
             original_url,
@@ -153,9 +153,9 @@ server.route({
   },
   config: {
     payload: {
-      maxBytes: 1024 * 1024 * 50, // 20 MB
+      maxBytes: 1024 * 1024 * 100/* MB */,
     },
-    description: 'This allows you to bulk-load results from pa11y-crawler.',
+    description: 'This allows you to bulk-load results from crawlkit.',
     tags: ['api', 'bulk'],
     validate: {
       payload: Joi.object().keys({

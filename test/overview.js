@@ -9,7 +9,7 @@ const URL = `http://${ENDPOINT}:8080`;
 describe('Server', () => {
   describe('GET /overview', () => {
     it('should show proper overview', (done) => {
-      dbHelper.truncatePa11yTable()
+      dbHelper.truncateA11yTable()
         .catch(done)
         .then(() => {
           const results = require('./fixtures/WAC_results.json');
@@ -19,7 +19,7 @@ describe('Server', () => {
           const overviewFixture = require('./fixtures/WAC_results_overview.json');
 
           request(URL)
-            .post('/load.pa11y')
+            .post('/load.a11y')
             .send(results)
             .expect(201, () => {
               request(URL)

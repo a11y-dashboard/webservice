@@ -7,10 +7,10 @@ const ENDPOINT = process.env.ENDPOINT;
 const URL = `http://${ENDPOINT}:8080`;
 
 describe('Server', () => {
-  describe('POST /load.pa11y', () => {
+  describe('POST /load.a11y', () => {
     it('should fail if results are missing', (done) => {
       request(URL)
-        .post('/load.pa11y')
+        .post('/load.a11y')
         .send({
           timestamp: new Date().toString(),
           origin: 'XXX',
@@ -20,7 +20,7 @@ describe('Server', () => {
 
     it('should fail if timestamp is missing', (done) => {
       request(URL)
-        .post('/load.pa11y')
+        .post('/load.a11y')
         .send({
           origin: 'XXX',
           results: {},
@@ -30,7 +30,7 @@ describe('Server', () => {
 
     it('should fail if origin is missing', (done) => {
       request(URL)
-        .post('/load.pa11y')
+        .post('/load.a11y')
         .send({
           timestamp: new Date().toString(),
           results: {},
@@ -40,7 +40,7 @@ describe('Server', () => {
 
     it('should fail if origin has wrong format', (done) => {
       request(URL)
-        .post('/load.pa11y')
+        .post('/load.a11y')
         .send({
           timestamp: new Date().toString(),
           results: {},
@@ -51,7 +51,7 @@ describe('Server', () => {
 
     it('should fail if timestamp has wrong format', (done) => {
       request(URL)
-        .post('/load.pa11y')
+        .post('/load.a11y')
         .send({
           timestamp: 'notadate',
           results: {},
@@ -64,7 +64,7 @@ describe('Server', () => {
       const results = require('./fixtures/single_result.json');
 
       request(URL)
-        .post('/load.pa11y')
+        .post('/load.a11y')
         .send(results)
         .expect('Content-Type', /json/)
         .expect(201, {
@@ -77,7 +77,7 @@ describe('Server', () => {
       results.unknown = true;
 
       request(URL)
-        .post('/load.pa11y')
+        .post('/load.a11y')
         .send(results)
         .expect('Content-Type', /json/)
         .expect(201, {
@@ -91,7 +91,7 @@ describe('Server', () => {
       results.origin = 'WAC';
 
       request(URL)
-        .post('/load.pa11y')
+        .post('/load.a11y')
         .send(results)
         .expect('Content-Type', /json/)
         .expect(201, {
@@ -106,7 +106,7 @@ describe('Server', () => {
 
       function load(cb) {
         request(URL)
-          .post('/load.pa11y')
+          .post('/load.a11y')
           .send(result)
           .expect(201, cb);
       }
@@ -116,7 +116,7 @@ describe('Server', () => {
           SELECT
             COUNT(*) as count
           FROM
-            ${dbal.tables.PA11Y}
+            ${dbal.tables.A11Y}
           WHERE
             origin=$1 AND crawled=$2
         `, [result.origin, dbal.pgp.as.date(new Date(result.timestamp))])

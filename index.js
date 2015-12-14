@@ -119,7 +119,8 @@ server.route({
             message,
             selector,
             level,
-            origin_project
+            origin_project,
+            standard
           ) VALUES (
             $<reverse_dns>,
             $<crawled>,
@@ -129,7 +130,8 @@ server.route({
             $<message>,
             $<selector>,
             $<level>,
-            $<origin_project>
+            $<origin_project>,
+            $<standard>
           );
           `,
             {
@@ -142,6 +144,7 @@ server.route({
               selector: result.selector,
               level: result.type,
               origin_project: origin,
+              standard: null,
             });
           queries.push(insert);
         });

@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS a11y
   origin_project character varying NOT NULL,
   origin_library library NOT NULL,
   level level NOT NULL,
+  standard text,
   loaded timestamp with time zone DEFAULT now(),
   CONSTRAINT a11y_pkey PRIMARY KEY (id)
 )
@@ -98,6 +99,24 @@ IF NOT EXISTS (
       ON a11y
       USING btree
       (level);
+END IF;
+END$$;
+
+-- DROP INDEX a11y_standard_idx;
+DO $$
+BEGIN
+IF NOT EXISTS (
+    SELECT 1
+    FROM   pg_class
+    JOIN   pg_namespace
+    ON pg_namespace.oid = pg_class.relnamespace
+    WHERE  pg_class.relname = 'a11y_standard_idx'
+    AND    pg_namespace.nspname = 'public'
+    ) THEN
+    CREATE INDEX a11y_level_idx
+      ON a11y
+      USING btree
+      (standard COLLATE pg_catalog."default");
 END IF;
 END$$;
 

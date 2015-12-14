@@ -28,6 +28,7 @@ function normalizeA11yDevTools(result) {
           context: culprit.context,
           helpUrl: item.helpUrl,
           msg: item.msg,
+          standard: null,
         });
       });
     });

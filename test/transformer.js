@@ -13,11 +13,21 @@ describe('Transformer', () => {
     });
   });
 
-  describe('normalizeA11yDevTools', () => {
-    it('should properly transform an a11y-dev-tools result', () => {
-      const raw = require('./fixtures/a11y-dev-tools/raw.json');
-      const transformed = require('./fixtures/a11y-dev-tools/transformed.json');
-      transformer.normalizeA11yDevTools(raw).should.deep.equal(transformed);
+  describe.only('normalize', () => {
+    describe('Google Chrome Accessibilty Developer Tools', () => {
+      it('should properly transform an a11y-dev-tools result', () => {
+        const raw = require('./fixtures/a11y-dev-tools/raw.json');
+        const transformed = require('./fixtures/a11y-dev-tools/transformed.json');
+        transformer.normalizeA11yDevTools(raw).should.deep.equal(transformed);
+      });
+    });
+
+    describe('aXe', () => {
+      it('should properly transform an axe result', () => {
+        const raw = require('./fixtures/axe/raw.json');
+        const transformed = require('./fixtures/axe/transformed.json');
+        transformer.normalizeAxe(raw).should.deep.equal(transformed);
+      });
     });
   });
 });

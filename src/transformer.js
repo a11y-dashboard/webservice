@@ -40,7 +40,44 @@ function normalizeA11yDevTools(result) {
   return ret;
 }
 
+function determineAxeLevel(impact) {
+  if (impact === 'minor') {
+    return NOTICE;
+  }
+  if (impact === 'moderate') {
+    return WARNING;
+  }
+  if (impact === 'serious' || impact === 'critical') {
+    return ERROR;
+  }
+  // unknown will be treated as notices
+  return NOTICE;
+}
+
+function normalizeAxe(result) {
+  const ret = [];
+
+  result.forEach((rule) => {
+    rule.tags.forEach((standard) => {
+      rule.nodes.forEach((node) => {
+        ret.push({
+          type: determineAxeLevel(node.impact),
+          code: rule.id,
+          selector: node.target.join(',\n'),
+          context: node.html,
+          helpUrl: rule.helpUrl,
+          msg: rule.description,
+          standard: standard,
+        });
+      });
+    });
+  });
+
+  return ret;
+}
+
 module.exports = {
   urlToReverseDnsNotation,
   normalizeA11yDevTools,
+  normalizeAxe,
 };

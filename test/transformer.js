@@ -1,4 +1,6 @@
 const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
+chai.use(chaiAsPromised);
 chai.should();
 
 const transformer = require('../src/transformer');
@@ -13,7 +15,40 @@ describe('Transformer', () => {
     });
   });
 
-  describe.only('normalize', () => {
+  describe('result', () => {
+    it('should be possible to transform an incoming result', () => {
+      const results = require('./fixtures/single_result.json').results;
+      const runners = results['https://www.hipchat.com/'].runners;
+
+      const a11yDevTools = transformer.normalizeA11yDevTools(runners['a11y-dev-tools'].result);
+      a11yDevTools.forEach((res) => {
+        res.originLibrary = 'a11y-dev-tools';
+      });
+
+      const axe = transformer.normalizeAxe(runners.axe.result);
+      axe.forEach((res) => {
+        res.originLibrary = 'axe';
+      });
+
+      const htmlcs = transformer.normalizeHtmlcs(runners.htmlcs.result);
+      htmlcs.forEach((res) => {
+        res.originLibrary = 'htmlcs';
+      });
+
+      const expectedResult = []
+          .concat(a11yDevTools)
+          .concat(axe)
+          .concat(htmlcs);
+      expectedResult.forEach((tuple) => {
+        tuple.url = 'https://www.hipchat.com/';
+        tuple.reverseDnsNotation = 'com.hipchat/';
+      });
+
+      return transformer.transformResult(results).should.eventually.deep.equal(expectedResult);
+    });
+  });
+
+  describe('normalize', () => {
     describe('Google Chrome Accessibilty Developer Tools', () => {
       it('should properly transform an a11y-dev-tools result', () => {
         const raw = require('./fixtures/a11y-dev-tools/raw.json');
@@ -30,7 +65,7 @@ describe('Transformer', () => {
       });
     });
 
-    describe.only('HTMLCS', () => {
+    describe('HTMLCS', () => {
       it('should properly transform an HTML CodeSniffer result', () => {
         const raw = require('./fixtures/htmlcs/raw.json');
         const transformed = require('./fixtures/htmlcs/transformed.json');

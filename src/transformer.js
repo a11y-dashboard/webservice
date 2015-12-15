@@ -1,3 +1,5 @@
+'use strict'; // eslint-disable-line
+
 const url = require('url');
 const normalizeUrl = require('normalize-url');
 const objectAssign = require('object-assign');
@@ -19,7 +21,7 @@ const ERROR = 'error';
 function normalizeA11yDevTools(result) {
   const ret = [];
 
-  function transformResult(targetLevel, items) {
+  function transformKey(targetLevel, items) {
     items.forEach((item) => {
       item.elements.forEach((culprit) => {
         ret.push({
@@ -35,8 +37,8 @@ function normalizeA11yDevTools(result) {
     });
   }
 
-  transformResult(WARNING, result.warnings);
-  transformResult(ERROR, result.errors);
+  transformKey(WARNING, result.warnings);
+  transformKey(ERROR, result.errors);
 
   return ret;
 }
@@ -93,9 +95,47 @@ function normalizeHtmlcs(result) {
   return ret;
 }
 
+function transformResult(results) {
+  return new Promise((resolve) => {
+    let res = [];
+    Object.keys(results).map((uri) => {
+      const reverseDnsNotation = urlToReverseDnsNotation(uri);
+      const resultsPerUrl = results[uri];
+
+      Object.keys(resultsPerUrl.runners).forEach((runner) => {
+        const runnerResults = resultsPerUrl.runners[runner].result;
+        let transformedResult;
+        switch (runner) {
+          case 'a11y-dev-tools':
+            transformedResult = normalizeA11yDevTools(runnerResults);
+            break;
+          case 'axe':
+            transformedResult = normalizeAxe(runnerResults);
+            break;
+          case 'htmlcs':
+            transformedResult = normalizeHtmlcs(runnerResults);
+            break;
+          default:
+            // ignore entry, we don't know what to do with it
+            return;
+        }
+        transformedResult.forEach((result) => {
+          result.url = uri;
+          result.originLibrary = runner;
+          result.reverseDnsNotation = reverseDnsNotation;
+        });
+
+        res = res.concat(transformedResult);
+      });
+    });
+    resolve(res);
+  });
+}
+
 module.exports = {
   urlToReverseDnsNotation,
   normalizeA11yDevTools,
   normalizeAxe,
   normalizeHtmlcs,
+  transformResult,
 };

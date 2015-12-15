@@ -86,9 +86,8 @@ describe('Server', () => {
     });
 
     it('should accept many results', (done) => {
-      const results = require('./fixtures/WAC_results.json');
+      const results = require('./fixtures/HCC.json');
       results.timestamp = '2015-11-09T10:20:30.514Z';
-      results.origin = 'WAC';
 
       request(URL)
         .post('/load.crawlkit')
@@ -108,7 +107,9 @@ describe('Server', () => {
         request(URL)
           .post('/load.crawlkit')
           .send(result)
-          .expect(201, cb);
+          .expect(201, {
+            error: null,
+          }, cb);
       }
 
       load(() => load(() => {
@@ -121,7 +122,7 @@ describe('Server', () => {
             origin_project=$1 AND crawled=$2
         `, [result.origin, dbal.pgp.as.date(new Date(result.timestamp))])
           .then((data) => {
-            parseInt(data.count, 10).should.equal(1);
+            parseInt(data.count, 10).should.equal(157);
             done();
           })
           .catch(done);

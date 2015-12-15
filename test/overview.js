@@ -12,11 +12,9 @@ describe('Server', () => {
       dbHelper.truncateA11yTable()
         .catch(done)
         .then(() => {
-          const results = require('./fixtures/WAC_results.json');
+          const results = require('./fixtures/HCC.json');
           results.timestamp = '2015-11-09T10:20:30.514Z';
-          results.origin = 'WAC';
-
-          const overviewFixture = require('./fixtures/WAC_results_overview.json');
+          const overviewFixture = require('./fixtures/HCC.overview.json');
 
           request(URL)
             .post('/load.crawlkit')

@@ -59,11 +59,11 @@ server.route({
   handler: (request, reply) => {
     dbal.db().query(`
       SELECT
-        origin_project,
-        extract(epoch from crawled) * 1000 as timestamp,
-        split_part(code, '.', 1) as standard,
+        origin_project AS origin,
+        EXTRACT(epoch FROM crawled) * 1000 AS timestamp,
+        standard,
         level,
-        COUNT(*) as count
+        COUNT(*) AS count
       FROM
         ${dbal.tables.A11Y}
       GROUP BY origin_project, crawled, standard, level
@@ -72,6 +72,7 @@ server.route({
       .then((data) => {
         const result = {};
         data.forEach((row) => {
+          row.standard = row.standard || 'unknown';
           const project = result[row.origin] = result[row.origin] || { datapoints: {} };
           const datapoints = project.datapoints[row.timestamp] = project.datapoints[row.timestamp] || {};
           const standard = datapoints[row.standard] = datapoints[row.standard] || {};
@@ -96,7 +97,7 @@ server.route({
 
     dbal.db().tx((t) => {
       const queries = [
-        dbal.db().query(`
+        t.none(`
           DELETE FROM
             ${dbal.tables.A11Y}
           WHERE
@@ -105,54 +106,56 @@ server.route({
             crawled=$2;
           `, [origin, dbal.pgp.as.date(timestamp)]),
       ];
-      Object.keys(results).map((url) => {
-        const reverseDnsNotation = transformer.urlToReverseDnsNotation(url);
-        const resultsPerUrl = results[url];
-        resultsPerUrl.forEach((result) => {
-          const insert = t.none(`
-          INSERT INTO ${dbal.tables.A11Y}(
-            reverse_dns,
-            crawled,
-            original_url,
-            code,
-            context,
-            message,
-            selector,
-            level,
-            origin_project,
-            standard
-          ) VALUES (
-            $<reverse_dns>,
-            $<crawled>,
-            $<original_url>,
-            $<code>,
-            $<context>,
-            $<message>,
-            $<selector>,
-            $<level>,
-            $<origin_project>,
-            $<standard>
-          );
-          `,
-            {
-              reverse_dns: reverseDnsNotation,
-              crawled: dbal.pgp.as.date(timestamp),
-              original_url: url,
-              code: result.code,
-              context: result.context,
-              message: result.message,
-              selector: result.selector,
-              level: result.type,
-              origin_project: origin,
-              standard: null,
-            });
-          queries.push(insert);
+      return transformer.transformResult(results)
+        .then((transformedResults) => {
+          transformedResults.forEach((result) => {
+            const insert = t.none(`
+            INSERT INTO ${dbal.tables.A11Y}(
+              reverse_dns,
+              crawled,
+              original_url,
+              code,
+              context,
+              message,
+              selector,
+              level,
+              origin_project,
+              standard,
+              origin_library
+            ) VALUES (
+              $<reverse_dns>,
+              $<crawled>,
+              $<original_url>,
+              $<code>,
+              $<context>,
+              $<message>,
+              $<selector>,
+              $<level>,
+              $<origin_project>,
+              $<standard>,
+              $<origin_library>
+            );
+            `,
+              {
+                reverse_dns: result.reverseDnsNotation,
+                crawled: dbal.pgp.as.date(timestamp),
+                original_url: result.url,
+                code: result.code,
+                context: result.context,
+                message: result.msg,
+                selector: result.selector,
+                level: result.type,
+                origin_project: origin,
+                standard: result.standard ? result.standard.toLowerCase() : null,
+                origin_library: result.originLibrary,
+              });
+            queries.push(insert);
+          });
+          return t.batch(queries);
         });
-      });
-      return t.batch(queries);
     })
       .then(() => reply({ error: null }).code(201))
-      .catch((error) => reply(null, error));
+      .catch((error) => reply(null, error).code(500));
   },
   config: {
     payload: {

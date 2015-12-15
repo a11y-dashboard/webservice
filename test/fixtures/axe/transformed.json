@@ -1,0 +1,749 @@
+[
+  {
+    "code": "color-contrast",
+    "context": "<a href=\"https://www.hipchat.com/sign_up\" class=\"button green-solid standard\">Start chatting, it's free</a>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#hipchat\\ skrollr-body > main > .hero-cta.text-left > .grid.grid-1.vertical-gutters-small.vertical-padding-large > .column.colspan-1.text-center > .button.green-solid.standard",
+    "standard": "wcag2aa",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<h2>Team chat that's actually built for business</h2>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#built-for-business-video > .grid.grid-5 > .column.colspan-2 > h2",
+    "standard": "wcag2aa",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<p>Persistent, searchable, and loaded with goodies: video calling, screen sharing, and the security your IT team craves.</p>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#built-for-business-video > .grid.grid-5 > .column.colspan-2 > p:nth-of-type(1)",
+    "standard": "wcag2aa",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<p>Stop losing momentum with reply-to-all wars and buried email messages. Cut to the chase with @mentions and get the answer you need.</p>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#built-for-business-video > .grid.grid-5 > .column.colspan-2 > p:nth-of-type(2)",
+    "standard": "wcag2aa",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<h2>Get your team started</h2>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#hipchat\\ skrollr-body > main > .get-started.intro.dark.text-center > .grid.grid-1.vertical-padding-standard > .column.colspan-all > h2",
+    "standard": "wcag2aa",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<a href=\"https://www.hipchat.com/server\" class=\"cms-link\"> Or host HipChat on your server </a>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#hipchat\\ skrollr-body > main > .get-started.intro.dark.text-center > .grid.grid-1.vertical-padding-standard > .column.colspan-all > .block.center > .cms-link",
+    "standard": "wcag2aa",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<a href=\"https://www.hipchat.com/privacy\" target=\"_blank\">Privacy Policy</a>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#hipchat\\ skrollr-body > footer > .grid.grid-6.vertical-padding-small.vertical-gutters-small > div:nth-of-type(2) > .copyright > a:nth-of-type(2)",
+    "standard": "wcag2aa",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<a href=\"https://www.hipchat.com/terms\" target=\"_blank\">Terms of Service</a>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#hipchat\\ skrollr-body > footer > .grid.grid-6.vertical-padding-small.vertical-gutters-small > div:nth-of-type(2) > .copyright > a:nth-of-type(3)",
+    "standard": "wcag2aa",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<span>Copyright © 2015</span>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#hipchat\\ skrollr-body > footer > .grid.grid-6.vertical-padding-small.vertical-gutters-small > div:nth-of-type(2) > .copyright > span",
+    "standard": "wcag2aa",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<a href=\"https://www.hipchat.com/sign_up\" class=\"button green-solid standard\">Start chatting, it's free</a>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#hipchat\\ skrollr-body > main > .hero-cta.text-left > .grid.grid-1.vertical-gutters-small.vertical-padding-large > .column.colspan-1.text-center > .button.green-solid.standard",
+    "standard": "wcag143",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<h2>Team chat that's actually built for business</h2>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#built-for-business-video > .grid.grid-5 > .column.colspan-2 > h2",
+    "standard": "wcag143",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<p>Persistent, searchable, and loaded with goodies: video calling, screen sharing, and the security your IT team craves.</p>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#built-for-business-video > .grid.grid-5 > .column.colspan-2 > p:nth-of-type(1)",
+    "standard": "wcag143",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<p>Stop losing momentum with reply-to-all wars and buried email messages. Cut to the chase with @mentions and get the answer you need.</p>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#built-for-business-video > .grid.grid-5 > .column.colspan-2 > p:nth-of-type(2)",
+    "standard": "wcag143",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<h2>Get your team started</h2>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#hipchat\\ skrollr-body > main > .get-started.intro.dark.text-center > .grid.grid-1.vertical-padding-standard > .column.colspan-all > h2",
+    "standard": "wcag143",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<a href=\"https://www.hipchat.com/server\" class=\"cms-link\"> Or host HipChat on your server </a>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#hipchat\\ skrollr-body > main > .get-started.intro.dark.text-center > .grid.grid-1.vertical-padding-standard > .column.colspan-all > .block.center > .cms-link",
+    "standard": "wcag143",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<a href=\"https://www.hipchat.com/privacy\" target=\"_blank\">Privacy Policy</a>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#hipchat\\ skrollr-body > footer > .grid.grid-6.vertical-padding-small.vertical-gutters-small > div:nth-of-type(2) > .copyright > a:nth-of-type(2)",
+    "standard": "wcag143",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<a href=\"https://www.hipchat.com/terms\" target=\"_blank\">Terms of Service</a>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#hipchat\\ skrollr-body > footer > .grid.grid-6.vertical-padding-small.vertical-gutters-small > div:nth-of-type(2) > .copyright > a:nth-of-type(3)",
+    "standard": "wcag143",
+    "type": "error"
+  },
+  {
+    "code": "color-contrast",
+    "context": "<span>Copyright © 2015</span>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+    "msg": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "selector": "#hipchat\\ skrollr-body > footer > .grid.grid-6.vertical-padding-small.vertical-gutters-small > div:nth-of-type(2) > .copyright > span",
+    "standard": "wcag143",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/05/columns/00/content/00/localUpload/osx-client-confluence.png.png\" class=\"overflow\" style=\"left: 70px;top: -25px;\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#ui-video > .overflow",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/06/columns/00/content/00/localUpload/os.svg.svg\" height=\"25px\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#run-on-everything > .column.colspan-1.text-left > img",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/01/localUpload/integrations.png.png\" height=\"25px\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .integrations-fun.text-left > .grid.grid-2.vertical-padding-standard > .column.colspan-1.text-left > img:nth-of-type(1)",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/02/localUpload/fun.png.png\" height=\"25px\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .integrations-fun.text-left > .grid.grid-2.vertical-padding-standard > .column.colspan-1.text-left > img:nth-of-type(2)",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:1534f97a-f9b1-4609-a7b2-c214bd1a4127/key.svg\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .lock-down.blue.dark.text-left > .grid.grid-2.vertical-gutters-standard.vertical-padding-large > div:nth-of-type(2) > img",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:7f8161cd-b215-4f9e-b2ec-019da0df3a0f/security.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(1) > img",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:c0016e9b-9ee3-4662-b5fc-18c45246d311/guest-access.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(2) > img",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:f14dc24f-1a09-4918-86df-ecd79fe1e50a/screen-share.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(3) > img",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:e3573d56-9e20-4c39-8900-89408d367c40/file-share.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(4) > img",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:0e4cb18d-c603-497a-8c4d-272b7f793c7f/unlimited-chat-rooms.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(5) > img",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:68653569-7c0d-4d05-85d1-d79a04307d16/customize.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(6) > img",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:72e40e72-e3d4-41a4-9198-48808464b8b4/search.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(7) > img",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:dc421453-2290-4bb2-8046-f64af70fc617/persistent-cloud.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(8) > img",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:61b8da1d-3b2d-4570-b9d4-75e50803da3d/clock.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(9) > img",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/01/columns/00/content/0/localUpload/customer-logos.png.png\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .loved-by-companies.text-center > .grid.grid-6.vertical-gutters-large.vertical-padding-large > .column.colspan-all.text-center > img",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/05/columns/00/content/00/localUpload/osx-client-confluence.png.png\" class=\"overflow\" style=\"left: 70px;top: -25px;\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#ui-video > .overflow",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/06/columns/00/content/00/localUpload/os.svg.svg\" height=\"25px\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#run-on-everything > .column.colspan-1.text-left > img",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/01/localUpload/integrations.png.png\" height=\"25px\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .integrations-fun.text-left > .grid.grid-2.vertical-padding-standard > .column.colspan-1.text-left > img:nth-of-type(1)",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/02/localUpload/fun.png.png\" height=\"25px\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .integrations-fun.text-left > .grid.grid-2.vertical-padding-standard > .column.colspan-1.text-left > img:nth-of-type(2)",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:1534f97a-f9b1-4609-a7b2-c214bd1a4127/key.svg\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .lock-down.blue.dark.text-left > .grid.grid-2.vertical-gutters-standard.vertical-padding-large > div:nth-of-type(2) > img",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:7f8161cd-b215-4f9e-b2ec-019da0df3a0f/security.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(1) > img",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:c0016e9b-9ee3-4662-b5fc-18c45246d311/guest-access.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(2) > img",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:f14dc24f-1a09-4918-86df-ecd79fe1e50a/screen-share.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(3) > img",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:e3573d56-9e20-4c39-8900-89408d367c40/file-share.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(4) > img",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:0e4cb18d-c603-497a-8c4d-272b7f793c7f/unlimited-chat-rooms.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(5) > img",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:68653569-7c0d-4d05-85d1-d79a04307d16/customize.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(6) > img",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:72e40e72-e3d4-41a4-9198-48808464b8b4/search.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(7) > img",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:dc421453-2290-4bb2-8046-f64af70fc617/persistent-cloud.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(8) > img",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:61b8da1d-3b2d-4570-b9d4-75e50803da3d/clock.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(9) > img",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/01/columns/00/content/0/localUpload/customer-logos.png.png\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .loved-by-companies.text-center > .grid.grid-6.vertical-gutters-large.vertical-padding-large > .column.colspan-all.text-center > img",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/05/columns/00/content/00/localUpload/osx-client-confluence.png.png\" class=\"overflow\" style=\"left: 70px;top: -25px;\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#ui-video > .overflow",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/06/columns/00/content/00/localUpload/os.svg.svg\" height=\"25px\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#run-on-everything > .column.colspan-1.text-left > img",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/01/localUpload/integrations.png.png\" height=\"25px\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .integrations-fun.text-left > .grid.grid-2.vertical-padding-standard > .column.colspan-1.text-left > img:nth-of-type(1)",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/02/localUpload/fun.png.png\" height=\"25px\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .integrations-fun.text-left > .grid.grid-2.vertical-padding-standard > .column.colspan-1.text-left > img:nth-of-type(2)",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:1534f97a-f9b1-4609-a7b2-c214bd1a4127/key.svg\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .lock-down.blue.dark.text-left > .grid.grid-2.vertical-gutters-standard.vertical-padding-large > div:nth-of-type(2) > img",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:7f8161cd-b215-4f9e-b2ec-019da0df3a0f/security.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(1) > img",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:c0016e9b-9ee3-4662-b5fc-18c45246d311/guest-access.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(2) > img",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:f14dc24f-1a09-4918-86df-ecd79fe1e50a/screen-share.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(3) > img",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:e3573d56-9e20-4c39-8900-89408d367c40/file-share.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(4) > img",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:0e4cb18d-c603-497a-8c4d-272b7f793c7f/unlimited-chat-rooms.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(5) > img",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:68653569-7c0d-4d05-85d1-d79a04307d16/customize.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(6) > img",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:72e40e72-e3d4-41a4-9198-48808464b8b4/search.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(7) > img",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:dc421453-2290-4bb2-8046-f64af70fc617/persistent-cloud.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(8) > img",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:61b8da1d-3b2d-4570-b9d4-75e50803da3d/clock.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(9) > img",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/01/columns/00/content/0/localUpload/customer-logos.png.png\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .loved-by-companies.text-center > .grid.grid-6.vertical-gutters-large.vertical-padding-large > .column.colspan-all.text-center > img",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/05/columns/00/content/00/localUpload/osx-client-confluence.png.png\" class=\"overflow\" style=\"left: 70px;top: -25px;\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#ui-video > .overflow",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/06/columns/00/content/00/localUpload/os.svg.svg\" height=\"25px\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#run-on-everything > .column.colspan-1.text-left > img",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/01/localUpload/integrations.png.png\" height=\"25px\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .integrations-fun.text-left > .grid.grid-2.vertical-padding-standard > .column.colspan-1.text-left > img:nth-of-type(1)",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/02/localUpload/fun.png.png\" height=\"25px\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .integrations-fun.text-left > .grid.grid-2.vertical-padding-standard > .column.colspan-1.text-left > img:nth-of-type(2)",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:1534f97a-f9b1-4609-a7b2-c214bd1a4127/key.svg\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .lock-down.blue.dark.text-left > .grid.grid-2.vertical-gutters-standard.vertical-padding-large > div:nth-of-type(2) > img",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:7f8161cd-b215-4f9e-b2ec-019da0df3a0f/security.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(1) > img",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:c0016e9b-9ee3-4662-b5fc-18c45246d311/guest-access.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(2) > img",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:f14dc24f-1a09-4918-86df-ecd79fe1e50a/screen-share.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(3) > img",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:e3573d56-9e20-4c39-8900-89408d367c40/file-share.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(4) > img",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:0e4cb18d-c603-497a-8c4d-272b7f793c7f/unlimited-chat-rooms.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(5) > img",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:68653569-7c0d-4d05-85d1-d79a04307d16/customize.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(6) > img",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:72e40e72-e3d4-41a4-9198-48808464b8b4/search.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(7) > img",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:dc421453-2290-4bb2-8046-f64af70fc617/persistent-cloud.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(8) > img",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:61b8da1d-3b2d-4570-b9d4-75e50803da3d/clock.svg\" height=\"34\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(9) > img",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "image-alt",
+    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/01/columns/00/content/0/localUpload/customer-logos.png.png\">",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+    "msg": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "selector": "#hipchat\\ skrollr-body > main > .loved-by-companies.text-center > .grid.grid-6.vertical-gutters-large.vertical-padding-large > .column.colspan-all.text-center > img",
+    "standard": "section508a",
+    "type": "error"
+  },
+  {
+    "code": "link-name",
+    "context": "<a href=\"#\" class=\"aui-icon aui-icon-small aui-iconfont-appswitcher menu-toggle\"></a>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/link-name",
+    "msg": "Ensures links have discernible text",
+    "selector": "#hipchat\\ skrollr-body > header > .grid > .aui-icon.aui-icon-small.aui-iconfont-appswitcher.menu-toggle",
+    "standard": "wcag2a",
+    "type": "error"
+  },
+  {
+    "code": "link-name",
+    "context": "<a href=\"#\" class=\"aui-icon aui-icon-small aui-iconfont-appswitcher menu-toggle\"></a>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/link-name",
+    "msg": "Ensures links have discernible text",
+    "selector": "#hipchat\\ skrollr-body > header > .grid > .aui-icon.aui-icon-small.aui-iconfont-appswitcher.menu-toggle",
+    "standard": "wcag111",
+    "type": "error"
+  },
+  {
+    "code": "link-name",
+    "context": "<a href=\"#\" class=\"aui-icon aui-icon-small aui-iconfont-appswitcher menu-toggle\"></a>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/link-name",
+    "msg": "Ensures links have discernible text",
+    "selector": "#hipchat\\ skrollr-body > header > .grid > .aui-icon.aui-icon-small.aui-iconfont-appswitcher.menu-toggle",
+    "standard": "wcag412",
+    "type": "error"
+  },
+  {
+    "code": "link-name",
+    "context": "<a href=\"#\" class=\"aui-icon aui-icon-small aui-iconfont-appswitcher menu-toggle\"></a>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/link-name",
+    "msg": "Ensures links have discernible text",
+    "selector": "#hipchat\\ skrollr-body > header > .grid > .aui-icon.aui-icon-small.aui-iconfont-appswitcher.menu-toggle",
+    "standard": "section508",
+    "type": "error"
+  },
+  {
+    "code": "link-name",
+    "context": "<a href=\"#\" class=\"aui-icon aui-icon-small aui-iconfont-appswitcher menu-toggle\"></a>",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/link-name",
+    "msg": "Ensures links have discernible text",
+    "selector": "#hipchat\\ skrollr-body > header > .grid > .aui-icon.aui-icon-small.aui-iconfont-appswitcher.menu-toggle",
+    "standard": "section508a",
+    "type": "error"
+  }
+]

@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; // eslint-disable-line
 
 const Hapi = require('hapi');
 const Joi = require('joi');
@@ -59,20 +59,21 @@ server.route({
   handler: (request, reply) => {
     dbal.db().query(`
       SELECT
-        origin,
-        extract(epoch from crawled) * 1000 as timestamp,
-        split_part(code, '.', 1) as standard,
+        origin_project AS origin,
+        EXTRACT(epoch FROM crawled) * 1000 AS timestamp,
+        standard,
         level,
-        COUNT(*) as count
+        COUNT(*) AS count
       FROM
-        ${dbal.tables.PA11Y}
-      GROUP BY origin, crawled, standard, level
-      ORDER BY origin, crawled DESC, standard, level;
+        ${dbal.tables.A11Y}
+      GROUP BY origin_project, crawled, standard, level
+      ORDER BY origin_project, crawled DESC, standard, level;
       `)
       .then((data) => {
         const result = {};
         data.forEach((row) => {
-          const project = result[row.origin] = result[row.origin] || {datapoints: {}};
+          row.standard = row.standard || 'unknown';
+          const project = result[row.origin] = result[row.origin] || { datapoints: {} };
           const datapoints = project.datapoints[row.timestamp] = project.datapoints[row.timestamp] || {};
           const standard = datapoints[row.standard] = datapoints[row.standard] || {};
           standard[row.level] = row.count;
@@ -88,7 +89,7 @@ server.route({
 
 server.route({
   method: 'POST',
-  path: '/load.pa11y',
+  path: '/load.crawlkit',
   handler: (request, reply) => {
     const results = request.payload.results;
     const timestamp = new Date(request.payload.timestamp);
@@ -96,66 +97,71 @@ server.route({
 
     dbal.db().tx((t) => {
       const queries = [
-        dbal.db().query(`
+        t.none(`
           DELETE FROM
-            ${dbal.tables.PA11Y}
+            ${dbal.tables.A11Y}
           WHERE
-            origin=$1
+            origin_project=$1
           AND
             crawled=$2;
           `, [origin, dbal.pgp.as.date(timestamp)]),
       ];
-      Object.keys(results).map((url) => {
-        const reverseDnsNotation = transformer.urlToReverseDnsNotation(url);
-        const resultsPerUrl = results[url];
-        resultsPerUrl.forEach((result) => {
-          const insert = t.none(`
-          INSERT INTO ${dbal.tables.PA11Y}(
-            reverse_dns,
-            crawled,
-            original_url,
-            code,
-            context,
-            message,
-            selector,
-            level,
-            origin
-          ) VALUES (
-            $<reverse_dns>,
-            $<crawled>,
-            $<original_url>,
-            $<code>,
-            $<context>,
-            $<message>,
-            $<selector>,
-            $<level>,
-            $<origin>
-          );
-          `,
-            {
-              reverse_dns: reverseDnsNotation,
-              crawled: dbal.pgp.as.date(timestamp),
-              original_url: url,
-              code: result.code,
-              context: result.context,
-              message: result.message,
-              selector: result.selector,
-              level: result.type,
-              origin: origin,
-            });
-          queries.push(insert);
+      return transformer.transformResult(results)
+        .then((transformedResults) => {
+          transformedResults.forEach((result) => {
+            const insert = t.none(`
+            INSERT INTO ${dbal.tables.A11Y}(
+              reverse_dns,
+              crawled,
+              original_url,
+              code,
+              context,
+              message,
+              selector,
+              level,
+              origin_project,
+              standard,
+              origin_library
+            ) VALUES (
+              $<reverse_dns>,
+              $<crawled>,
+              $<original_url>,
+              $<code>,
+              $<context>,
+              $<message>,
+              $<selector>,
+              $<level>,
+              $<origin_project>,
+              $<standard>,
+              $<origin_library>
+            );
+            `,
+              {
+                reverse_dns: result.reverseDnsNotation,
+                crawled: dbal.pgp.as.date(timestamp),
+                original_url: result.url,
+                code: result.code,
+                context: result.context,
+                message: result.msg,
+                selector: result.selector,
+                level: result.type,
+                origin_project: origin,
+                standard: result.standard ? result.standard.toLowerCase() : null,
+                origin_library: result.originLibrary,
+              });
+            queries.push(insert);
+          });
+          return t.batch(queries);
         });
-      });
-      return t.batch(queries);
     })
       .then(() => reply({ error: null }).code(201))
-      .catch((error) => reply(null, error));
+      .catch((error) => reply(null, error).code(500));
   },
   config: {
     payload: {
-      maxBytes: 1024 * 1024 * 50, // 20 MB
+      maxBytes: 1024 * 1024 * 100/* MB */,
     },
-    description: 'This allows you to bulk-load results from pa11y-crawler.',
+    description: 'This allows you to bulk-load results from crawlkit.',
     tags: ['api', 'bulk'],
     validate: {
       payload: Joi.object().keys({

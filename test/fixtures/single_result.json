@@ -1,16 +1,1834 @@
 {
-  "origin": "WAC",
-  "timestamp": "2015-11-09T00:00:00.514Z",
+  "origin": "HCC",
+  "timestamp": "2015-12-09T04:50:55.256Z",
   "results": {
-    "https://www.atlassian.com/": [
-      {
-        "code": "Section508.L.PlaceholderAnchor",
-        "context": "<a href=\"\">Products</a>",
-        "message": "Anchor element found with link content, but no href, ID, or name attribute has been supplied.",
-        "selector": "#mainNav > ul > li:nth-child(1) > a",
-        "type": "warning",
-        "typeCode": 2
+    "https://www.hipchat.com/": {
+      "runners": {
+        "a11y-dev-tools": {
+          "result": {
+            "errors": [
+            ],
+            "warnings": [
+              {
+                "code": "AX_FOCUS_01",
+                "elements": [
+                  {
+                    "context": "<a href=\"/pricing\" title=\"Pricing\" class=\"pricing\">Pricing</a>",
+                    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI > .pricing"
+                  },
+                  {
+                    "context": "<a href=\"/integrations\" title=\"Integrations\" class=\"integrations\">Integrations</a>",
+                    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(2) > .integrations"
+                  },
+                  {
+                    "context": "<a href=\"/server\" title=\"Server\" class=\"server\">Server</a>",
+                    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(3) > .server"
+                  },
+                  {
+                    "context": "<a href=\"/downloads\" title=\"Downloads\">Downloads</a>",
+                    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(4) > .downloads > A"
+                  },
+                  {
+                    "context": "<a href=\"https://www.hipchat.com/sign_in\" class=\"cms-link\"> Log in </a>",
+                    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(5) > .cms-link"
+                  }
+                ],
+                "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_focus_01",
+                "msg": "These elements are focusable but either invisible or obscured by another element"
+              },
+              {
+                "code": "AX_TEXT_02",
+                "elements": [
+                  {
+                    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/05/columns/00/content/00/localUpload/osx-client-confluence.png.png\" class=\"overflow\" style=\"left: 70px;top: -25px;\">",
+                    "selector": "#ui-video > .overflow"
+                  },
+                  {
+                    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/06/columns/00/content/00/localUpload/os.svg.svg\" height=\"25px\">",
+                    "selector": "#run-on-everything > .column.colspan-1.text-left > IMG"
+                  },
+                  {
+                    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/01/localUpload/integrations.png.png\" height=\"25px\">",
+                    "selector": "MAIN > .integrations-fun.text-left > .grid.grid-2.vertical-padding-standard > .column.colspan-1.text-left > IMG"
+                  },
+                  {
+                    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/02/localUpload/fun.png.png\" height=\"25px\">",
+                    "selector": "MAIN > .integrations-fun.text-left > .grid.grid-2.vertical-padding-standard > .column.colspan-1.text-left > IMG:nth-of-type(2)"
+                  },
+                  {
+                    "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:1534f97a-f9b1-4609-a7b2-c214bd1a4127/key.svg\">",
+                    "selector": "MAIN > .lock-down.blue.dark.text-left > .grid.grid-2.vertical-gutters-standard.vertical-padding-large > DIV:nth-of-type(2) > IMG"
+                  }
+                ],
+                "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_text_02",
+                "msg": "Images should have a text alternative or presentational role"
+              },
+              {
+                "code": "AX_TEXT_04",
+                "elements": [
+                  {
+                    "context": "<a href=\"#\" class=\"aui-icon aui-icon-small aui-iconfont-appswitcher menu-toggle\"></a>",
+                    "selector": "body > .hipchat > .grid > .aui-icon.aui-icon-small.aui-iconfont-appswitcher.menu-toggle"
+                  },
+                  {
+                    "context": "<a href=\"/about\" title=\"About\" class=\"about\">About</a>",
+                    "selector": "body > .hipchat > .grid > NAV > .nav-inner > .secondary-links > LI:nth-of-type(4) > .about"
+                  }
+                ],
+                "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_text_04",
+                "msg": "The purpose of each link should be clear from the link text"
+              },
+              {
+                "code": "AX_COLOR_01",
+                "elements": [
+                  {
+                    "context": "<a href=\"/pricing\" title=\"Pricing\" class=\"pricing\">Pricing</a>",
+                    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI > .pricing"
+                  },
+                  {
+                    "context": "<a href=\"/integrations\" title=\"Integrations\" class=\"integrations\">Integrations</a>",
+                    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(2) > .integrations"
+                  },
+                  {
+                    "context": "<a href=\"/server\" title=\"Server\" class=\"server\">Server</a>",
+                    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(3) > .server"
+                  },
+                  {
+                    "context": "<a href=\"/downloads\" title=\"Downloads\">Downloads</a>",
+                    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(4) > .downloads > A"
+                  },
+                  {
+                    "context": "<a href=\"https://www.hipchat.com/sign_in\" class=\"cms-link\"> Log in </a>",
+                    "selector": "body > .hipchat > .grid > NAV > .nav-inner > UL > LI:nth-of-type(5) > .cms-link"
+                  }
+                ],
+                "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_color_01",
+                "msg": "Text elements should have a reasonable contrast ratio"
+              },
+              {
+                "code": "AX_IMAGE_01",
+                "elements": [
+                  {
+                    "context": "<span title=\"Available\" class=\"available person2\"></span>",
+                    "selector": "MAIN > .liberate-yourself.text-left > .grid.grid-6 > .on-a-call > .available.person2"
+                  },
+                  {
+                    "context": "<span title=\"Idle\" class=\"idle person2\"></span>",
+                    "selector": "MAIN > .liberate-yourself.text-left > .grid.grid-6 > .on-a-call > .idle.person2"
+                  },
+                  {
+                    "context": "<span title=\"On a call\" class=\"person2\"></span>",
+                    "selector": "MAIN > .liberate-yourself.text-left > .grid.grid-6 > .on-a-call > SPAN:nth-of-type(3)"
+                  },
+                  {
+                    "context": "<span title=\"Work from home\" class=\"person1\"></span>",
+                    "selector": "MAIN > .liberate-yourself.text-left > .grid.grid-6 > .wfh > .person1"
+                  },
+                  {
+                    "context": "<span title=\"Meeting\" class=\"person3\"></span>",
+                    "selector": "MAIN > .liberate-yourself.text-left > .grid.grid-6 > .meeting > .person3"
+                  }
+                ],
+                "helpUrl": "https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules#ax_image_01",
+                "msg": "Meaningful images should not be used in element backgrounds"
+              }
+            ]
+          }
+        },
+        "axe": {
+          "result": [
+            {
+              "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+              "help": "Elements must have sufficient color contrast",
+              "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/color-contrast",
+              "id": "color-contrast",
+              "impact": "critical",
+              "nodes": [
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": {
+                        "bgColor": "#67ab49",
+                        "contrastRatio": "2.80",
+                        "fgColor": "#ffffff",
+                        "fontSize": "13.5pt",
+                        "fontWeight": "bold"
+                      },
+                      "id": "color-contrast",
+                      "impact": "critical",
+                      "message": "Element has insufficient color contrast of 2.80 (foreground color: #ffffff, background color: #67ab49, font size: 13.5pt, font weight: bold)",
+                      "relatedNodes": [
+                        {
+                          "html": "<a href=\"https://www.hipchat.com/sign_up\" class=\"button green-solid standard\">Start chatting, it's free</a>",
+                          "target": [
+                            "#hipchat\\ skrollr-body > main > .hero-cta.text-left > .grid.grid-1.vertical-gutters-small.vertical-padding-large > .column.colspan-1.text-center > .button.green-solid.standard"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "html": "<a href=\"https://www.hipchat.com/sign_up\" class=\"button green-solid standard\">Start chatting, it's free</a>",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .hero-cta.text-left > .grid.grid-1.vertical-gutters-small.vertical-padding-large > .column.colspan-1.text-center > .button.green-solid.standard"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": {
+                        "bgColor": "#59afe1",
+                        "contrastRatio": "2.43",
+                        "fgColor": "#ffffff",
+                        "fontSize": "24.0pt",
+                        "fontWeight": "bold"
+                      },
+                      "id": "color-contrast",
+                      "impact": "critical",
+                      "message": "Element has insufficient color contrast of 2.43 (foreground color: #ffffff, background color: #59afe1, font size: 24.0pt, font weight: bold)",
+                      "relatedNodes": [
+                        {
+                          "html": "<section id=\"built-for-business-video\" class=\"built-for-business intro dark text-left\">",
+                          "target": [
+                            "#built-for-business-video"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "html": "<h2>Team chat that's actually built for business</h2>",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#built-for-business-video > .grid.grid-5 > .column.colspan-2 > h2"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": {
+                        "bgColor": "#59afe1",
+                        "contrastRatio": "2.43",
+                        "fgColor": "#ffffff",
+                        "fontSize": "12.0pt",
+                        "fontWeight": "normal"
+                      },
+                      "id": "color-contrast",
+                      "impact": "critical",
+                      "message": "Element has insufficient color contrast of 2.43 (foreground color: #ffffff, background color: #59afe1, font size: 12.0pt, font weight: normal)",
+                      "relatedNodes": [
+                        {
+                          "html": "<section id=\"built-for-business-video\" class=\"built-for-business intro dark text-left\">",
+                          "target": [
+                            "#built-for-business-video"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "html": "<p>Persistent, searchable, and loaded with goodies: video calling, screen sharing, and the security your IT team craves.</p>",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#built-for-business-video > .grid.grid-5 > .column.colspan-2 > p:nth-of-type(1)"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": {
+                        "bgColor": "#59afe1",
+                        "contrastRatio": "2.43",
+                        "fgColor": "#ffffff",
+                        "fontSize": "12.0pt",
+                        "fontWeight": "normal"
+                      },
+                      "id": "color-contrast",
+                      "impact": "critical",
+                      "message": "Element has insufficient color contrast of 2.43 (foreground color: #ffffff, background color: #59afe1, font size: 12.0pt, font weight: normal)",
+                      "relatedNodes": [
+                        {
+                          "html": "<section id=\"built-for-business-video\" class=\"built-for-business intro dark text-left\">",
+                          "target": [
+                            "#built-for-business-video"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "html": "<p>Stop losing momentum with reply-to-all wars and buried email messages. Cut to the chase with @mentions and get the answer you need.</p>",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#built-for-business-video > .grid.grid-5 > .column.colspan-2 > p:nth-of-type(2)"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": {
+                        "bgColor": "#59afe1",
+                        "contrastRatio": "2.43",
+                        "fgColor": "#ffffff",
+                        "fontSize": "24.0pt",
+                        "fontWeight": "bold"
+                      },
+                      "id": "color-contrast",
+                      "impact": "critical",
+                      "message": "Element has insufficient color contrast of 2.43 (foreground color: #ffffff, background color: #59afe1, font size: 24.0pt, font weight: bold)",
+                      "relatedNodes": [
+                        {
+                          "html": "<section class=\"get-started intro dark text-center\">",
+                          "target": [
+                            "#hipchat\\ skrollr-body > main > .get-started.intro.dark.text-center"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "html": "<h2>Get your team started</h2>",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .get-started.intro.dark.text-center > .grid.grid-1.vertical-padding-standard > .column.colspan-all > h2"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": {
+                        "bgColor": "#59afe1",
+                        "contrastRatio": "3.42",
+                        "fgColor": "#205081",
+                        "fontSize": "10.5pt",
+                        "fontWeight": "normal"
+                      },
+                      "id": "color-contrast",
+                      "impact": "critical",
+                      "message": "Element has insufficient color contrast of 3.42 (foreground color: #205081, background color: #59afe1, font size: 10.5pt, font weight: normal)",
+                      "relatedNodes": [
+                        {
+                          "html": "<section class=\"get-started intro dark text-center\">",
+                          "target": [
+                            "#hipchat\\ skrollr-body > main > .get-started.intro.dark.text-center"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "html": "<a href=\"https://www.hipchat.com/server\" class=\"cms-link\"> Or host HipChat on your server </a>",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .get-started.intro.dark.text-center > .grid.grid-1.vertical-padding-standard > .column.colspan-all > .block.center > .cms-link"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": {
+                        "bgColor": "#eeeeee",
+                        "contrastRatio": "2.46",
+                        "fgColor": "#999999",
+                        "fontSize": "8.3pt",
+                        "fontWeight": "normal"
+                      },
+                      "id": "color-contrast",
+                      "impact": "critical",
+                      "message": "Element has insufficient color contrast of 2.46 (foreground color: #999999, background color: #eeeeee, font size: 8.3pt, font weight: normal)",
+                      "relatedNodes": [
+                        {
+                          "html": "<footer class=\"hipchat\">",
+                          "target": [
+                            "#hipchat\\ skrollr-body > footer"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "html": "<a href=\"https://www.hipchat.com/privacy\" target=\"_blank\">Privacy Policy</a>",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > footer > .grid.grid-6.vertical-padding-small.vertical-gutters-small > div:nth-of-type(2) > .copyright > a:nth-of-type(2)"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": {
+                        "bgColor": "#eeeeee",
+                        "contrastRatio": "2.46",
+                        "fgColor": "#999999",
+                        "fontSize": "8.3pt",
+                        "fontWeight": "normal"
+                      },
+                      "id": "color-contrast",
+                      "impact": "critical",
+                      "message": "Element has insufficient color contrast of 2.46 (foreground color: #999999, background color: #eeeeee, font size: 8.3pt, font weight: normal)",
+                      "relatedNodes": [
+                        {
+                          "html": "<footer class=\"hipchat\">",
+                          "target": [
+                            "#hipchat\\ skrollr-body > footer"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "html": "<a href=\"https://www.hipchat.com/terms\" target=\"_blank\">Terms of Service</a>",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > footer > .grid.grid-6.vertical-padding-small.vertical-gutters-small > div:nth-of-type(2) > .copyright > a:nth-of-type(3)"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": {
+                        "bgColor": "#eeeeee",
+                        "contrastRatio": "2.46",
+                        "fgColor": "#999999",
+                        "fontSize": "8.3pt",
+                        "fontWeight": "normal"
+                      },
+                      "id": "color-contrast",
+                      "impact": "critical",
+                      "message": "Element has insufficient color contrast of 2.46 (foreground color: #999999, background color: #eeeeee, font size: 8.3pt, font weight: normal)",
+                      "relatedNodes": [
+                        {
+                          "html": "<footer class=\"hipchat\">",
+                          "target": [
+                            "#hipchat\\ skrollr-body > footer"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "html": "<span>Copyright © 2015</span>",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > footer > .grid.grid-6.vertical-padding-small.vertical-gutters-small > div:nth-of-type(2) > .copyright > span"
+                  ]
+                }
+              ],
+              "tags": [
+                "wcag2aa",
+                "wcag143"
+              ]
+            },
+            {
+              "description": "Ensures <img> elements have alternate text or a role of none or presentation",
+              "help": "Images must have alternate text",
+              "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/image-alt",
+              "id": "image-alt",
+              "impact": "critical",
+              "nodes": [
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/05/columns/00/content/00/localUpload/osx-client-confluence.png.png\" class=\"overflow\" style=\"left: 70px;top: -25px;\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#ui-video > .overflow"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/06/columns/00/content/00/localUpload/os.svg.svg\" height=\"25px\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#run-on-everything > .column.colspan-1.text-left > img"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/01/localUpload/integrations.png.png\" height=\"25px\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .integrations-fun.text-left > .grid.grid-2.vertical-padding-standard > .column.colspan-1.text-left > img:nth-of-type(1)"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/02/localUpload/fun.png.png\" height=\"25px\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .integrations-fun.text-left > .grid.grid-2.vertical-padding-standard > .column.colspan-1.text-left > img:nth-of-type(2)"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:1534f97a-f9b1-4609-a7b2-c214bd1a4127/key.svg\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .lock-down.blue.dark.text-left > .grid.grid-2.vertical-gutters-standard.vertical-padding-large > div:nth-of-type(2) > img"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:7f8161cd-b215-4f9e-b2ec-019da0df3a0f/security.svg\" height=\"34\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(1) > img"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:c0016e9b-9ee3-4662-b5fc-18c45246d311/guest-access.svg\" height=\"34\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(2) > img"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:f14dc24f-1a09-4918-86df-ecd79fe1e50a/screen-share.svg\" height=\"34\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(3) > img"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:e3573d56-9e20-4c39-8900-89408d367c40/file-share.svg\" height=\"34\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(4) > img"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:0e4cb18d-c603-497a-8c4d-272b7f793c7f/unlimited-chat-rooms.svg\" height=\"34\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(5) > img"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:68653569-7c0d-4d05-85d1-d79a04307d16/customize.svg\" height=\"34\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(6) > img"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:72e40e72-e3d4-41a4-9198-48808464b8b4/search.svg\" height=\"34\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(7) > img"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:dc421453-2290-4bb2-8046-f64af70fc617/persistent-cloud.svg\" height=\"34\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(8) > img"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:61b8da1d-3b2d-4570-b9d4-75e50803da3d/clock.svg\" height=\"34\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .all-features.featured.text-left > .grid.grid-3.vertical-gutters-large.gallery > div:nth-of-type(9) > img"
+                  ]
+                },
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-alt",
+                      "impact": "critical",
+                      "message": "Element does not have an alt attribute",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "non-empty-title",
+                      "impact": "critical",
+                      "message": "Element has no title attribute or the title attribute is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/01/columns/00/content/0/localUpload/customer-logos.png.png\">",
+                  "impact": "critical",
+                  "none": [
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > main > .loved-by-companies.text-center > .grid.grid-6.vertical-gutters-large.vertical-padding-large > .column.colspan-all.text-center > img"
+                  ]
+                }
+              ],
+              "tags": [
+                "wcag2a",
+                "wcag111",
+                "section508",
+                "section508a"
+              ]
+            },
+            {
+              "description": "Ensures links have discernible text",
+              "help": "Links must have discernible text",
+              "helpUrl": "https://dequeuniversity.com/rules/axe/1.1/link-name",
+              "id": "link-name",
+              "impact": "critical",
+              "nodes": [
+                {
+                  "all": [
+                  ],
+                  "any": [
+                    {
+                      "data": "",
+                      "id": "has-visible-text",
+                      "impact": "critical",
+                      "message": "Element does not have text that is visible to screen readers",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-label",
+                      "impact": "critical",
+                      "message": "aria-label attribute does not exist or is empty",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "aria-labelledby",
+                      "impact": "critical",
+                      "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty or not visible",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-presentation",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"presentation\"",
+                      "relatedNodes": [
+                      ]
+                    },
+                    {
+                      "data": "",
+                      "id": "role-none",
+                      "impact": "moderate",
+                      "message": "Element's default semantics were not overridden with role=\"none\"",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "html": "<a href=\"#\" class=\"aui-icon aui-icon-small aui-iconfont-appswitcher menu-toggle\"></a>",
+                  "impact": "critical",
+                  "none": [
+                    {
+                      "data": "",
+                      "id": "focusable-no-name",
+                      "impact": "serious",
+                      "message": "Element is in tab order and does not have accessible text",
+                      "relatedNodes": [
+                      ]
+                    }
+                  ],
+                  "target": [
+                    "#hipchat\\ skrollr-body > header > .grid > .aui-icon.aui-icon-small.aui-iconfont-appswitcher.menu-toggle"
+                  ]
+                }
+              ],
+              "tags": [
+                "wcag2a",
+                "wcag111",
+                "wcag412",
+                "section508",
+                "section508a"
+              ]
+            }
+          ]
+        },
+        "htmlcs": {
+          "result": {
+            "Section508": [
+              {
+                "code": "Section508.L.NoContentAnchor",
+                "context": "<a href=\"#\" class=\"aui-icon aui-icon-small aui-iconfont-appswitcher menu-toggle\"></a>",
+                "msg": "Anchor element found with a valid href attribute, but no link content has been supplied.",
+                "selector": ".aui-icon",
+                "type": "error"
+              },
+              {
+                "code": "Section508.D.HeadingOrder",
+                "context": "<h4>Security & privacy</h4>",
+                "msg": "The heading structure is not logically nested. This h4 element should be an h3 to be properly nested.",
+                "selector": ":nth-child(1) > h4",
+                "type": "error"
+              }
+            ],
+            "WCAG2AA": [
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H48",
+                "context": "<div class=\"grid\"> <!-- <a href=\"//hipchat-magnolia-cdn.atlassian.com/\" class=\"logo icon hipchat\" title=\"Atlassian HipChat\">Atlassian…> Site status </a> </li> <li> <a href=\"/server\" title=\"Server\" class=\"server\">Server</a> </li> </ul> </div> </nav> </div>",
+                "msg": "If this element contains a navigation section, it is recommended that it be marked up as a list.",
+                "selector": "header.hipchat > .grid",
+                "type": "warning"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+                "context": "<a href=\"https://www.hipchat.com\" class=\"logo icon hipchat\" title=\"Atlassian HipChat\">Atlassian HipChat</a>",
+                "msg": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+                "selector": ".grid > .logo",
+                "type": "warning"
+              },
+              {
+                "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.NoContent",
+                "context": "<a href=\"#\" class=\"aui-icon aui-icon-small aui-iconfont-appswitcher menu-toggle\"></a>",
+                "msg": "Anchor element found with a valid href attribute, but no link content has been supplied.",
+                "selector": ".aui-icon",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"/pricing\" title=\"Pricing\" class=\"pricing\">Pricing</a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": ".pricing",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"/integrations\" title=\"Integrations\" class=\"integrations\">Integrations</a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": ".integrations",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"/server\" title=\"Server\" class=\"server\">Server</a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": ":nth-child(3) > .server",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"/downloads\" title=\"Downloads\">Downloads</a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": ".downloads > a",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"https://www.hipchat.com/sign_in\" class=\"cms-link\"> Log in </a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": ":nth-child(1) > :nth-child(5) > .cms-link",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"https://www.hipchat.com/sign_up\" class=\"button green-hollow standard\">Sign up</a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": ":nth-child(6) > .button",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"https://help.hipchat.com/\" class=\"cms-link\"> Help & Contact </a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": "",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"/customers\" title=\"Love Stories\" class=\"customers\">Love Stories</a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": "",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"/about\" title=\"About\" class=\"about\">About</a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": "",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"/jobs\" title=\"Jobs\" class=\"jobs\">Jobs</a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": "",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"/press\" title=\"Press\" class=\"press\">Press</a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": "",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"http://blog.hipchat.com/\" class=\"cms-link\"> Blog </a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": "",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"https://www.hipchat.com/docs/apiv2\" class=\"cms-link\"> API docs </a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": "",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"http://status.hipchat.com/\" class=\"cms-link\"> Site status </a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": "",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+                "context": "<h1>Great teams use HipChat</h1>",
+                "msg": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+                "selector": "h1",
+                "type": "warning"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+                "context": "<h2>Group and private chat, file sharing, and integrations</h2>",
+                "msg": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+                "selector": ".hero-cta > .grid > .column > h2",
+                "type": "warning"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"https://www.hipchat.com/sign_up\" class=\"button green-solid standard\">Start chatting, it's free</a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.8:1. Recommendation: change background to #418523.",
+                "selector": ".hero-cta > .grid > .column > .button",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.Fail",
+                "context": "<h2>Team chat that's actually built for business</h2>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 3:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #479dcf.",
+                "selector": ".colspan-2 > h2",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<p>Persistent, searchable, and loaded with goodies: video calling, screen sharing, and the security your IT team craves.</p>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": ".colspan-2 > :nth-child(2)",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<p>Stop losing momentum with reply-to-all wars and buried email messages. Cut to the chase with @mentions and get the answer you need.</p>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+                "selector": ".colspan-2 > :nth-child(3)",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/05/columns/00/content/00/localUpload/osx-client-confluence.png.png\" class=\"overflow\" style=\"left: 70px;top: -25px;\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ".overflow",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:48b1d821-ef9a-41c2-b28d-1a906850cf57/macbook-videochat.png\" class=\"desktop\" width=\"600px\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ".desktop",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:11e5a1ca-94e1-4a73-97f9-e8dbcd94ff38/android-videochat.png\" class=\"phone\" width=\"150px\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ".phone",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/06/columns/00/content/00/localUpload/os.svg.svg\" height=\"25px\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": "#run-on-everything > .text-left > img",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+                "context": "<h2>Liberate yourself from your desk</h2>",
+                "msg": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+                "selector": ".liberate-yourself > .grid > .column > h2",
+                "type": "warning"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+                "context": "<p>HipChat lets you bring the office with you wherever you go. Work from home, the train, your kid's soccer game, your neighbor's cousin's bat mitzvah, you get the idea.</p>",
+                "msg": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+                "selector": ".liberate-yourself > .grid > .column > p",
+                "type": "warning"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/01/localUpload/integrations.png.png\" height=\"25px\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ".integrations-fun > .grid > .text-left > :nth-child(1)",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/02/localUpload/fun.png.png\" height=\"25px\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ".text-left > :nth-child(4)",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:1534f97a-f9b1-4609-a7b2-c214bd1a4127/key.svg\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": "",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:7f8161cd-b215-4f9e-b2ec-019da0df3a0f/security.svg\" height=\"34\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ".all-features > .grid > :nth-child(1) > img",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1_A.G141",
+                "context": "<h4>Security & privacy</h4>",
+                "msg": "The heading structure is not logically nested. This h4 element should be an h3 to be properly nested.",
+                "selector": ":nth-child(1) > h4",
+                "type": "warning"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:c0016e9b-9ee3-4662-b5fc-18c45246d311/guest-access.svg\" height=\"34\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ".all-features > .grid > :nth-child(2) > img",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:f14dc24f-1a09-4918-86df-ecd79fe1e50a/screen-share.svg\" height=\"34\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ":nth-child(3) > img",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:e3573d56-9e20-4c39-8900-89408d367c40/file-share.svg\" height=\"34\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ":nth-child(4) > img",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:0e4cb18d-c603-497a-8c4d-272b7f793c7f/unlimited-chat-rooms.svg\" height=\"34\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ":nth-child(5) > img",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:68653569-7c0d-4d05-85d1-d79a04307d16/customize.svg\" height=\"34\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ":nth-child(6) > img",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:72e40e72-e3d4-41a4-9198-48808464b8b4/search.svg\" height=\"34\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ":nth-child(7) > img",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:dc421453-2290-4bb2-8046-f64af70fc617/persistent-cloud.svg\" height=\"34\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ":nth-child(8) > img",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:61b8da1d-3b2d-4570-b9d4-75e50803da3d/clock.svg\" height=\"34\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ":nth-child(9) > img",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+                "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/01/columns/00/content/0/localUpload/customer-logos.png.png\">",
+                "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+                "selector": ".colspan-all > img",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.Fail",
+                "context": "<h2>Get your team started</h2>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 3:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #479dcf.",
+                "selector": ".get-started > .grid > .column > h2",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"https://www.hipchat.com/server\" class=\"cms-link\"> Or host HipChat on your server </a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.42:1. Recommendation: change text colour to #0d3d6e.",
+                "selector": ".block > .cms-link",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H48",
+                "context": "<p class=\"copyright\"> <a href=\"https://www.atlassian.com\" class=\"icon atlassian-gray logo\" title=\"Atlassian\">Atlassian</a> <a href=\"http…cy</a> <a href=\"https://www.hipchat.com/terms\" target=\"_blank\">Terms of Service</a> <span>Copyright © 2015</span> </p>",
+                "msg": "If this element contains a navigation section, it is recommended that it be marked up as a list.",
+                "selector": ".copyright",
+                "type": "warning"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+                "context": "<a href=\"https://www.atlassian.com\" class=\"icon atlassian-gray logo\" title=\"Atlassian\">Atlassian</a>",
+                "msg": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+                "selector": ".copyright > .icon",
+                "type": "warning"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"https://www.hipchat.com/privacy\" target=\"_blank\">Privacy Policy</a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.46:1. Recommendation: change text colour to #6c6c6c.",
+                "selector": ".copyright > :nth-child(2)",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<a href=\"https://www.hipchat.com/terms\" target=\"_blank\">Terms of Service</a>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.46:1. Recommendation: change text colour to #6c6c6c.",
+                "selector": ".copyright > :nth-child(3)",
+                "type": "error"
+              },
+              {
+                "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+                "context": "<span>Copyright © 2015</span>",
+                "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.46:1. Recommendation: change text colour to #6c6c6c.",
+                "selector": ".copyright > span",
+                "type": "error"
+              }
+            ]
+          }
+        }
       }
-    ]
+    }
   }
 }

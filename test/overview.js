@@ -9,17 +9,15 @@ const URL = `http://${ENDPOINT}:8080`;
 describe('Server', () => {
   describe('GET /overview', () => {
     it('should show proper overview', (done) => {
-      dbHelper.truncatePa11yTable()
+      dbHelper.truncateA11yTable()
         .catch(done)
         .then(() => {
-          const results = require('./fixtures/WAC_results.json');
+          const results = require('./fixtures/HCC.json');
           results.timestamp = '2015-11-09T10:20:30.514Z';
-          results.origin = 'WAC';
-
-          const overviewFixture = require('./fixtures/WAC_results_overview.json');
+          const overviewFixture = require('./fixtures/HCC.overview.json');
 
           request(URL)
-            .post('/load.pa11y')
+            .post('/load.crawlkit')
             .send(results)
             .expect(201, () => {
               request(URL)

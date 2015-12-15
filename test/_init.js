@@ -12,6 +12,6 @@ before(function testWithTimeout(done) {
     ],
   }, (err) => {
     if (err) return done(err);
-    dbHelper.truncatePa11yTable().then(() => done()).catch(done);
+    dbHelper.truncateA11yTable().then(() => done()).catch(done);
   });
 });

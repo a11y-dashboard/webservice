@@ -1,0 +1,370 @@
+{
+  "Section508": [
+    {
+      "code": "Section508.L.NoContentAnchor",
+      "context": "<a href=\"#\" class=\"aui-icon aui-icon-small aui-iconfont-appswitcher menu-toggle\"></a>",
+      "msg": "Anchor element found with a valid href attribute, but no link content has been supplied.",
+      "selector": ".aui-icon",
+      "type": "error"
+    },
+    {
+      "code": "Section508.D.HeadingOrder",
+      "context": "<h4>Security & privacy</h4>",
+      "msg": "The heading structure is not logically nested. This h4 element should be an h3 to be properly nested.",
+      "selector": ":nth-child(1) > h4",
+      "type": "error"
+    }
+  ],
+  "WCAG2AA": [
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H48",
+      "context": "<div class=\"grid\"> <!-- <a href=\"//hipchat-magnolia-cdn.atlassian.com/\" class=\"logo icon hipchat\" title=\"Atlassian HipChat\">Atlassian…> Site status </a> </li> <li> <a href=\"/server\" title=\"Server\" class=\"server\">Server</a> </li> </ul> </div> </nav> </div>",
+      "msg": "If this element contains a navigation section, it is recommended that it be marked up as a list.",
+      "selector": "header.hipchat > .grid",
+      "type": "warning"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+      "context": "<a href=\"https://www.hipchat.com\" class=\"logo icon hipchat\" title=\"Atlassian HipChat\">Atlassian HipChat</a>",
+      "msg": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+      "selector": ".grid > .logo",
+      "type": "warning"
+    },
+    {
+      "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.NoContent",
+      "context": "<a href=\"#\" class=\"aui-icon aui-icon-small aui-iconfont-appswitcher menu-toggle\"></a>",
+      "msg": "Anchor element found with a valid href attribute, but no link content has been supplied.",
+      "selector": ".aui-icon",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"/pricing\" title=\"Pricing\" class=\"pricing\">Pricing</a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": ".pricing",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"/integrations\" title=\"Integrations\" class=\"integrations\">Integrations</a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": ".integrations",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"/server\" title=\"Server\" class=\"server\">Server</a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": ":nth-child(3) > .server",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"/downloads\" title=\"Downloads\">Downloads</a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": ".downloads > a",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"https://www.hipchat.com/sign_in\" class=\"cms-link\"> Log in </a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": ":nth-child(1) > :nth-child(5) > .cms-link",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"https://www.hipchat.com/sign_up\" class=\"button green-hollow standard\">Sign up</a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": ":nth-child(6) > .button",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"https://help.hipchat.com/\" class=\"cms-link\"> Help & Contact </a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": "",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"/customers\" title=\"Love Stories\" class=\"customers\">Love Stories</a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": "",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"/about\" title=\"About\" class=\"about\">About</a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": "",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"/jobs\" title=\"Jobs\" class=\"jobs\">Jobs</a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": "",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"/press\" title=\"Press\" class=\"press\">Press</a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": "",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"http://blog.hipchat.com/\" class=\"cms-link\"> Blog </a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": "",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"https://www.hipchat.com/docs/apiv2\" class=\"cms-link\"> API docs </a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": "",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"http://status.hipchat.com/\" class=\"cms-link\"> Site status </a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": "",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+      "context": "<h1>Great teams use HipChat</h1>",
+      "msg": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+      "selector": "h1",
+      "type": "warning"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+      "context": "<h2>Group and private chat, file sharing, and integrations</h2>",
+      "msg": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+      "selector": ".hero-cta > .grid > .column > h2",
+      "type": "warning"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"https://www.hipchat.com/sign_up\" class=\"button green-solid standard\">Start chatting, it's free</a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.8:1. Recommendation: change background to #418523.",
+      "selector": ".hero-cta > .grid > .column > .button",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.Fail",
+      "context": "<h2>Team chat that's actually built for business</h2>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 3:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #479dcf.",
+      "selector": ".colspan-2 > h2",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<p>Persistent, searchable, and loaded with goodies: video calling, screen sharing, and the security your IT team craves.</p>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": ".colspan-2 > :nth-child(2)",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<p>Stop losing momentum with reply-to-all wars and buried email messages. Cut to the chase with @mentions and get the answer you need.</p>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #277daf.",
+      "selector": ".colspan-2 > :nth-child(3)",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/05/columns/00/content/00/localUpload/osx-client-confluence.png.png\" class=\"overflow\" style=\"left: 70px;top: -25px;\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ".overflow",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:48b1d821-ef9a-41c2-b28d-1a906850cf57/macbook-videochat.png\" class=\"desktop\" width=\"600px\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ".desktop",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:11e5a1ca-94e1-4a73-97f9-e8dbcd94ff38/android-videochat.png\" class=\"phone\" width=\"150px\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ".phone",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/06/columns/00/content/00/localUpload/os.svg.svg\" height=\"25px\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": "#run-on-everything > .text-left > img",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+      "context": "<h2>Liberate yourself from your desk</h2>",
+      "msg": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1.",
+      "selector": ".liberate-yourself > .grid > .column > h2",
+      "type": "warning"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+      "context": "<p>HipChat lets you bring the office with you wherever you go. Work from home, the train, your kid's soccer game, your neighbor's cousin's bat mitzvah, you get the idea.</p>",
+      "msg": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+      "selector": ".liberate-yourself > .grid > .column > p",
+      "type": "warning"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/01/localUpload/integrations.png.png\" height=\"25px\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ".integrations-fun > .grid > .text-left > :nth-child(1)",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/03/columns/0/content/02/localUpload/fun.png.png\" height=\"25px\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ".text-left > :nth-child(4)",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:1534f97a-f9b1-4609-a7b2-c214bd1a4127/key.svg\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": "",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:7f8161cd-b215-4f9e-b2ec-019da0df3a0f/security.svg\" height=\"34\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ".all-features > .grid > :nth-child(1) > img",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1_A.G141",
+      "context": "<h4>Security & privacy</h4>",
+      "msg": "The heading structure is not logically nested. This h4 element should be an h3 to be properly nested.",
+      "selector": ":nth-child(1) > h4",
+      "type": "warning"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:c0016e9b-9ee3-4662-b5fc-18c45246d311/guest-access.svg\" height=\"34\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ".all-features > .grid > :nth-child(2) > img",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:f14dc24f-1a09-4918-86df-ecd79fe1e50a/screen-share.svg\" height=\"34\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ":nth-child(3) > img",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:e3573d56-9e20-4c39-8900-89408d367c40/file-share.svg\" height=\"34\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ":nth-child(4) > img",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:0e4cb18d-c603-497a-8c4d-272b7f793c7f/unlimited-chat-rooms.svg\" height=\"34\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ":nth-child(5) > img",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:68653569-7c0d-4d05-85d1-d79a04307d16/customize.svg\" height=\"34\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ":nth-child(6) > img",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:72e40e72-e3d4-41a4-9198-48808464b8b4/search.svg\" height=\"34\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ":nth-child(7) > img",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:dc421453-2290-4bb2-8046-f64af70fc617/persistent-cloud.svg\" height=\"34\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ":nth-child(8) > img",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/dam/jcr:61b8da1d-3b2d-4570-b9d4-75e50803da3d/clock.svg\" height=\"34\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ":nth-child(9) > img",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "context": "<img src=\"//hipchat-magnolia-cdn.atlassian.com/main/01/columns/00/content/0/localUpload/customer-logos.png.png\">",
+      "msg": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.",
+      "selector": ".colspan-all > img",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.Fail",
+      "context": "<h2>Get your team started</h2>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 3:1, but text in this element has a contrast ratio of 2.43:1. Recommendation: change background to #479dcf.",
+      "selector": ".get-started > .grid > .column > h2",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"https://www.hipchat.com/server\" class=\"cms-link\"> Or host HipChat on your server </a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.42:1. Recommendation: change text colour to #0d3d6e.",
+      "selector": ".block > .cms-link",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H48",
+      "context": "<p class=\"copyright\"> <a href=\"https://www.atlassian.com\" class=\"icon atlassian-gray logo\" title=\"Atlassian\">Atlassian</a> <a href=\"http…cy</a> <a href=\"https://www.hipchat.com/terms\" target=\"_blank\">Terms of Service</a> <span>Copyright © 2015</span> </p>",
+      "msg": "If this element contains a navigation section, it is recommended that it be marked up as a list.",
+      "selector": ".copyright",
+      "type": "warning"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+      "context": "<a href=\"https://www.atlassian.com\" class=\"icon atlassian-gray logo\" title=\"Atlassian\">Atlassian</a>",
+      "msg": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1.",
+      "selector": ".copyright > .icon",
+      "type": "warning"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"https://www.hipchat.com/privacy\" target=\"_blank\">Privacy Policy</a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.46:1. Recommendation: change text colour to #6c6c6c.",
+      "selector": ".copyright > :nth-child(2)",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<a href=\"https://www.hipchat.com/terms\" target=\"_blank\">Terms of Service</a>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.46:1. Recommendation: change text colour to #6c6c6c.",
+      "selector": ".copyright > :nth-child(3)",
+      "type": "error"
+    },
+    {
+      "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "context": "<span>Copyright © 2015</span>",
+      "msg": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.46:1. Recommendation: change text colour to #6c6c6c.",
+      "selector": ".copyright > span",
+      "type": "error"
+    }
+  ]
+}

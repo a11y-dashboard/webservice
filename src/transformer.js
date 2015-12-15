@@ -1,5 +1,6 @@
 const url = require('url');
 const normalizeUrl = require('normalize-url');
+const objectAssign = require('object-assign');
 
 function urlToReverseDnsNotation(u) {
   const normalizedUrl = normalizeUrl(u);
@@ -76,8 +77,25 @@ function normalizeAxe(result) {
   return ret;
 }
 
+function normalizeHtmlcs(result) {
+  const ret = [];
+
+  Object.keys(result).forEach((standard) => {
+    const standardResults = result[standard];
+    standardResults.forEach((standardResult) => {
+      ret.push(objectAssign({}, standardResult, {
+        standard,
+        helpUrl: null,
+      }));
+    });
+  });
+
+  return ret;
+}
+
 module.exports = {
   urlToReverseDnsNotation,
   normalizeA11yDevTools,
   normalizeAxe,
+  normalizeHtmlcs,
 };

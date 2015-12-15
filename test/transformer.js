@@ -29,5 +29,13 @@ describe('Transformer', () => {
         transformer.normalizeAxe(raw).should.deep.equal(transformed);
       });
     });
+
+    describe.only('HTMLCS', () => {
+      it('should properly transform an HTML CodeSniffer result', () => {
+        const raw = require('./fixtures/htmlcs/raw.json');
+        const transformed = require('./fixtures/htmlcs/transformed.json');
+        transformer.normalizeHtmlcs(raw).should.deep.equal(transformed);
+      });
+    });
   });
 });

@@ -113,7 +113,7 @@ IF NOT EXISTS (
     WHERE  pg_class.relname = 'a11y_standard_idx'
     AND    pg_namespace.nspname = 'public'
     ) THEN
-    CREATE INDEX a11y_level_idx
+    CREATE INDEX a11y_standard_idx
       ON a11y
       USING btree
       (standard COLLATE pg_catalog."default");

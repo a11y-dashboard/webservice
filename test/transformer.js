@@ -46,6 +46,18 @@ describe('Transformer', () => {
 
       return transformer.transformResult(results).should.eventually.deep.equal(expectedResult);
     });
+
+    it('should be possible to transform a result with errors', () => {
+      const results = require('./fixtures/single_result_with_error.json').results;
+      const expected = [];
+      return transformer.transformResult(results).should.eventually.deep.equal(expected);
+    });
+
+    it('should be possible to transform a result with runner errors', () => {
+      const results = require('./fixtures/single_result_with_runner_error.json').results;
+      const expected = [];
+      return transformer.transformResult(results).should.eventually.deep.equal(expected);
+    });
   });
 
   describe('normalize', () => {

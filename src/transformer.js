@@ -102,31 +102,35 @@ function transformResult(results) {
       const reverseDnsNotation = urlToReverseDnsNotation(uri);
       const resultsPerUrl = results[uri];
 
-      Object.keys(resultsPerUrl.runners).forEach((runner) => {
-        const runnerResults = resultsPerUrl.runners[runner].result;
-        let transformedResult;
-        switch (runner) {
-          case 'a11y-dev-tools':
-            transformedResult = normalizeA11yDevTools(runnerResults);
-            break;
-          case 'axe':
-            transformedResult = normalizeAxe(runnerResults);
-            break;
-          case 'htmlcs':
-            transformedResult = normalizeHtmlcs(runnerResults);
-            break;
-          default:
-            // ignore entry, we don't know what to do with it
-            return;
-        }
-        transformedResult.forEach((result) => {
-          result.url = uri;
-          result.originLibrary = runner;
-          result.reverseDnsNotation = reverseDnsNotation;
-        });
+      if (resultsPerUrl.runners) {
+        Object.keys(resultsPerUrl.runners).forEach((runner) => {
+          const runnerResults = resultsPerUrl.runners[runner].result;
+          if (runnerResults) { // if this is not true, the runner probably errored
+            let transformedResult;
+            switch (runner) {
+              case 'a11y-dev-tools':
+                transformedResult = normalizeA11yDevTools(runnerResults);
+                break;
+              case 'axe':
+                transformedResult = normalizeAxe(runnerResults);
+                break;
+              case 'htmlcs':
+                transformedResult = normalizeHtmlcs(runnerResults);
+                break;
+              default:
+                // ignore entry, we don't know what to do with it
+                return;
+            }
+            transformedResult.forEach((result) => {
+              result.url = uri;
+              result.originLibrary = runner;
+              result.reverseDnsNotation = reverseDnsNotation;
+            });
 
-        res = res.concat(transformedResult);
-      });
+            res = res.concat(transformedResult);
+          }
+        });
+      }
     });
     resolve(res);
   });

@@ -159,6 +159,7 @@ server.route({
   },
   config: {
     payload: {
+      timeout: 1000 * 60 * 5/* minutes */,
       maxBytes: 1024 * 1024 * 100/* MB */,
     },
     description: 'This allows you to bulk-load results from crawlkit.',

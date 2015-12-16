@@ -70,7 +70,7 @@ function normalizeAxe(result) {
           context: node.html,
           helpUrl: rule.helpUrl,
           msg: rule.description,
-          standard: standard,
+          standard,
         });
       });
     });

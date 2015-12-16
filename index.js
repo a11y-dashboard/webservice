@@ -21,7 +21,7 @@ server.connection({
 const config = {
   register: hapiBunyan,
   options: {
-    logger: logger,
+    logger,
   },
 };
 

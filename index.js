@@ -77,7 +77,7 @@ server.route({
       .then((data) => {
         const result = {};
         data.forEach((row) => {
-          row.standard = row.standard || 'unknown';
+          row.standard = row.standard || 'best-practice';
           const project = result[row.origin] = result[row.origin] || { datapoints: {} };
           const datapoints = project.datapoints[row.timestamp] = project.datapoints[row.timestamp] || {};
           const standard = datapoints[row.standard] = datapoints[row.standard] || {};

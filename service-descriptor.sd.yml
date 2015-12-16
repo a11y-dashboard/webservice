@@ -17,3 +17,5 @@ organization: Design-Core
 resources:
 - type: postgres-db
   name: db
+scaling:
+  instance: medium

@@ -1,0 +1,13 @@
+{
+  "origin": "HCC",
+  "timestamp": "2015-12-09T04:50:55.256Z",
+  "results": {
+    "https://www.hipchat.com/": {
+      "runners": {
+        "a11y-dev-tools": {
+          "error": "This runner failed"
+        }
+      }
+    }
+  }
+}

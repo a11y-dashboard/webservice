@@ -16,6 +16,11 @@ const server = new Hapi.Server();
 server.connection({
   host: '0.0.0.0',
   port: 8080,
+  routes: {
+    timeout: {
+      socket: 1000 * 60 * 5/* minutes */,
+    },
+  },
 });
 
 const config = {
@@ -159,7 +164,7 @@ server.route({
   },
   config: {
     payload: {
-      timeout: 1000 * 60 * 5/* minutes */,
+      timeout: false,
       maxBytes: 1024 * 1024 * 100/* MB */,
     },
     description: 'This allows you to bulk-load results from crawlkit.',

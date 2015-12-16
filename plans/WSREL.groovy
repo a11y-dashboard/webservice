@@ -103,7 +103,7 @@ deployment(name:'Deploy Accessibility Dashboard Webservice to Micros (Docker)',
          executable:'Node.js')
 
       task(type:'script',description:'Deploy to Micros environment.',
-         scriptBody:'MICROS_TOKEN="$bamboo_micros_token_password" "$(npm bin)/micros" service:deploy "a11y-dashboard-webservice" -f service/service-descriptor.* -e "ddev" -v')
+         scriptBody:'MICROS_TOKEN="$bamboo_micros_token_password" "$(npm bin)/micros" service:deploy "a11y-dashboard-webservice" -u cfn-base -f service/service-descriptor.* -e "ddev" -v')
 
       task(type:'artifactDownload',description:'Get release record',
          planKey:'A11Y-WSREL') {

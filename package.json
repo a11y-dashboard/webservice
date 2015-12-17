@@ -26,7 +26,9 @@
   "license": "MIT",
   "homepage": "https://bitbucket.org/atlassian/a11y-dashboard-webservice#readme",
   "dependencies": {
+    "JSONStream": "^1.0.7",
     "bunyan": "^1.5.1",
+    "event-stream": "^3.3.2",
     "hapi": "^11.1.2",
     "hapi-bunyan": "^0.6.0",
     "joi": "^7.0.1",

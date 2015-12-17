@@ -13,11 +13,14 @@ describe('Server', () => {
         .catch(done)
         .then(() => {
           const results = require('./fixtures/HCC.json');
-          results.timestamp = '2015-11-09T10:20:30.514Z';
           const overviewFixture = require('./fixtures/HCC.overview.json');
 
           request(URL)
             .post('/load.crawlkit')
+            .query({
+              origin: 'HCC',
+              timestamp: '2015-11-09T10:20:30.514Z',
+            })
             .send(results)
             .expect(201, () => {
               request(URL)

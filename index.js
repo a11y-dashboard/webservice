@@ -8,6 +8,8 @@ const fs = require('fs');
 const dbal = require('./src/dbal');
 const logger = require('./src/logger');
 const INIT_SCRIPT = fs.readFileSync('./docker-entrypoint-initdb.d/INIT.sql', 'utf8');
+const JSONStream = require('JSONStream');
+const es = require('event-stream');
 
 dbal.db().query(INIT_SCRIPT).catch((err) => logger.error(err));
 
@@ -96,85 +98,106 @@ server.route({
   method: 'POST',
   path: '/load.crawlkit',
   handler: (request, reply) => {
-    const results = request.payload.results;
-    const timestamp = new Date(request.payload.timestamp);
-    const origin = request.payload.origin;
+    const timestamp = request.query.timestamp;
+    const origin = request.query.origin;
 
     dbal.db().tx((t) => {
-      const queries = [
-        t.none(`
-          DELETE FROM
-            ${dbal.tables.A11Y}
-          WHERE
-            origin_project=$1
-          AND
-            crawled=$2;
-          `, [origin, dbal.pgp.as.date(timestamp)]),
-      ];
-      return transformer.transformResult(results)
-        .then((transformedResults) => {
-          transformedResults.forEach((result) => {
-            const insert = t.none(`
-            INSERT INTO ${dbal.tables.A11Y}(
-              reverse_dns,
-              crawled,
-              original_url,
-              code,
-              context,
-              message,
-              selector,
-              level,
-              origin_project,
-              standard,
-              origin_library
-            ) VALUES (
-              $<reverse_dns>,
-              $<crawled>,
-              $<original_url>,
-              $<code>,
-              $<context>,
-              $<message>,
-              $<selector>,
-              $<level>,
-              $<origin_project>,
-              $<standard>,
-              $<origin_library>
-            );
-            `,
-              {
-                reverse_dns: result.reverseDnsNotation,
-                crawled: dbal.pgp.as.date(timestamp),
-                original_url: result.url,
-                code: result.code,
-                context: result.context,
-                message: result.msg,
-                selector: result.selector,
-                level: result.type,
-                origin_project: origin,
-                standard: result.standard ? result.standard.toLowerCase() : null,
-                origin_library: result.originLibrary,
+      return new Promise((resolve, reject) => {
+        const queries = [
+          t.none(`
+            DELETE FROM
+              ${dbal.tables.A11Y}
+            WHERE
+              origin_project=$1
+            AND
+              crawled=$2;
+            `, [origin, dbal.pgp.as.date(timestamp)]),
+        ];
+
+        request.payload
+          .on('error', (err) => {
+            reply(null, err).code(500);
+            throw err;
+          })
+          .pipe(JSONStream.parse('*', (data, path) => {
+            return {
+              url: path.pop(),
+              value: data,
+            };
+          }))
+          .pipe(es.mapSync((singleResult) => {
+            transformer.transformResult(singleResult.url, singleResult.value)
+              .then((transformedResults) => {
+                transformedResults.forEach((result) => {
+                  const insert = t.none(`
+                  INSERT INTO ${dbal.tables.A11Y}(
+                    reverse_dns,
+                    crawled,
+                    original_url,
+                    code,
+                    context,
+                    message,
+                    selector,
+                    level,
+                    origin_project,
+                    standard,
+                    origin_library
+                  ) VALUES (
+                    $<reverse_dns>,
+                    $<crawled>,
+                    $<original_url>,
+                    $<code>,
+                    $<context>,
+                    $<message>,
+                    $<selector>,
+                    $<level>,
+                    $<origin_project>,
+                    $<standard>,
+                    $<origin_library>
+                  );
+                  `,
+                    {
+                      reverse_dns: result.reverseDnsNotation,
+                      crawled: dbal.pgp.as.date(timestamp),
+                      original_url: result.url,
+                      code: result.code,
+                      context: result.context,
+                      message: result.msg,
+                      selector: result.selector,
+                      level: result.type,
+                      origin_project: origin,
+                      standard: result.standard ? result.standard.toLowerCase() : null,
+                      origin_library: result.originLibrary,
+                    });
+                  queries.push(insert);
+                });
+              }, (err) => {
+                reply(null, err).code(500);
+                throw err;
               });
-            queries.push(insert);
+          }))
+          .on('close', () => {
+            t.batch(queries).then(resolve, reject);
           });
-          return t.batch(queries);
-        });
+      });
     })
       .then(() => reply({ error: null }).code(201))
       .catch((error) => reply(null, error).code(500));
   },
   config: {
     payload: {
+      output: 'stream',
+      parse: 'gunzip',
       timeout: false,
       maxBytes: 1024 * 1024 * 100/* MB */,
     },
     description: 'This allows you to bulk-load results from crawlkit.',
     tags: ['api', 'bulk'],
     validate: {
-      payload: Joi.object().keys({
+      query: {
         origin: Joi.string().alphanum().min(3).required(),
         timestamp: Joi.date().required(),
-        results: Joi.object().required(),
-      }).unknown(),
+      },
     },
   },
 });

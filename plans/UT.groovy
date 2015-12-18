@@ -41,6 +41,9 @@ exit 0
          task(type:'npm',description:'Install dependencies',
             command:'install',executable:'Node.js 4.2')
 
+        task(type:'npm',description:'Install wait-on',
+           command:'install wait-on',executable:'Node.js 4.2')
+
         task(type:'npm',description:'Lint code',
            command:'run lint',executable:'Node.js 4.2')
 
@@ -58,8 +61,6 @@ chmod u+x docker-compose
 
          task(type:'script',description:'Run composed docker service in background',
             scriptBody:'''
-
-
 set -e
 
 screen -S a11yws -d -m bash -c "./docker-compose stop && ./docker-compose rm -f && ./docker-compose up 2>&1|tee command.log"
@@ -68,10 +69,7 @@ function kill_a11yws {
 }
 trap kill_a11yws INT EXIT
 
-npm install wait-on
 `npm bin`/wait-on -t 300000 tcp:8080
-
-
 ''')
 
          task(type:'npm',description:'Run tests',command:'run bamboo',

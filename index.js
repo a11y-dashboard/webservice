@@ -20,7 +20,7 @@ server.connection({
   port: 8080,
   routes: {
     timeout: {
-      socket: 1000 * 60 * 5/* minutes */,
+      socket: false,
     },
   },
 });
@@ -188,7 +188,7 @@ server.route({
     payload: {
       output: 'stream',
       parse: 'gunzip',
-      timeout: false,
+      timeout: 1000 * 60 * 10/* minutes */,
       maxBytes: 1024 * 1024 * 100/* MB */,
     },
     description: 'This allows you to bulk-load results from crawlkit.',

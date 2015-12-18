@@ -17,7 +17,7 @@ describe('Transformer', () => {
 
   describe('result', () => {
     it('should be possible to transform an incoming result', () => {
-      const results = require('./fixtures/single_result.json').results;
+      const results = require('./fixtures/single_result.json');
       const runners = results['https://www.hipchat.com/'].runners;
 
       const a11yDevTools = transformer.normalizeA11yDevTools(runners['a11y-dev-tools'].result);
@@ -44,19 +44,19 @@ describe('Transformer', () => {
         tuple.reverseDnsNotation = 'com.hipchat/';
       });
 
-      return transformer.transformResult(results).should.eventually.deep.equal(expectedResult);
+      return transformer.transformResult('https://www.hipchat.com/', results['https://www.hipchat.com/']).should.eventually.deep.equal(expectedResult);
     });
 
     it('should be possible to transform a result with errors', () => {
-      const results = require('./fixtures/single_result_with_error.json').results;
+      const results = require('./fixtures/single_result_with_error.json');
       const expected = [];
-      return transformer.transformResult(results).should.eventually.deep.equal(expected);
+      return transformer.transformResult('https://www.hipchat.com/', results['https://www.hipchat.com/']).should.eventually.deep.equal(expected);
     });
 
     it('should be possible to transform a result with runner errors', () => {
-      const results = require('./fixtures/single_result_with_runner_error.json').results;
+      const results = require('./fixtures/single_result_with_runner_error.json');
       const expected = [];
-      return transformer.transformResult(results).should.eventually.deep.equal(expected);
+      return transformer.transformResult('https://www.hipchat.com/', results['https://www.hipchat.com/']).should.eventually.deep.equal(expected);
     });
   });
 

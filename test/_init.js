@@ -1,4 +1,5 @@
 const waitOn = require('wait-on');
+const dbHelper = require('./helpers/db');
 const ENDPOINT = process.env.ENDPOINT;
 
 before(function testWithTimeout(done) {
@@ -12,4 +13,8 @@ before(function testWithTimeout(done) {
   }, (err) => {
     done(err);
   });
+});
+
+beforeEach((done) => {
+  dbHelper.truncateA11yTable().then(() => done()).catch(done);
 });

@@ -2,7 +2,6 @@ const request = require('supertest');
 const dbal = require('../src/dbal');
 const chai = require('chai');
 const zlib = require('zlib');
-const dbHelper = require('./helpers/db');
 chai.should();
 
 const ENDPOINT = process.env.ENDPOINT;
@@ -26,10 +25,6 @@ function assertDbSize(origin, timestamp, count, done) {
 
 describe('Server', function server() {
   this.timeout(60000);
-
-  beforeEach((done) => {
-    dbHelper.truncateA11yTable().then(() => done()).catch(done);
-  });
 
   describe('POST /load.crawlkit', () => {
     it('should not fail if results are missing', (done) => {

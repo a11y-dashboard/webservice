@@ -1,6 +1,5 @@
 const request = require('supertest');
 const chai = require('chai');
-const dbHelper = require('./helpers/db');
 chai.should();
 
 const ENDPOINT = process.env.ENDPOINT;
@@ -8,10 +7,6 @@ const URL = `http://${ENDPOINT}:8080`;
 
 describe('Server', function server() {
   this.timeout(60000);
-
-  beforeEach((done) => {
-    dbHelper.truncateA11yTable().then(() => done()).catch(done);
-  });
 
   describe('GET /overview', () => {
     it('should show proper overview', (done) => {

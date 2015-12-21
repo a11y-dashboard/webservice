@@ -1,4 +1,3 @@
-const dbHelper = require('./helpers/db');
 const request = require('supertest');
 const chai = require('chai');
 chai.should();

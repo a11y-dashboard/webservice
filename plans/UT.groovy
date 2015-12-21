@@ -63,7 +63,7 @@ chmod u+x docker-compose
             scriptBody:'''
 set -e
 
-screen -S a11yws -d -m bash -c "./docker-compose stop && ./docker-compose rm -f && ./docker-compose up 2>&1|tee command.log"
+screen -S a11yws -d -m bash -c "./docker-compose stop && ./docker-compose kill && ./docker-compose rm -f && ./docker-compose up 2>&1|tee command.log"
 function kill_a11yws {
     screen -X -S a11yws quit
 }

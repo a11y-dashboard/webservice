@@ -11,7 +11,10 @@ before(function testWithTimeout(done) {
       `tcp:${ENDPOINT}:54321`,
     ],
   }, (err) => {
-    if (err) return done(err);
-    dbHelper.truncateA11yTable().then(() => done()).catch(done);
+    done(err);
   });
+});
+
+beforeEach((done) => {
+  dbHelper.truncateA11yTable().then(() => done()).catch(done);
 });

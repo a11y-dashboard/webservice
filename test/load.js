@@ -23,7 +23,9 @@ function assertDbSize(origin, timestamp, count, done) {
     .catch(done);
 }
 
-describe('Server', () => {
+describe('Server', function server() {
+  this.timeout(60000);
+
   describe('POST /load.crawlkit', () => {
     it('should not fail if results are missing', (done) => {
       request(URL)

@@ -5,7 +5,9 @@ chai.should();
 const ENDPOINT = process.env.ENDPOINT;
 const URL = `http://${ENDPOINT}:8080`;
 
-describe('Server', () => {
+describe('Server', function server() {
+  this.timeout(60000);
+
   describe('GET /overview', () => {
     it('should show proper overview', (done) => {
       const results = require('./fixtures/HCC.json');

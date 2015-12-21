@@ -18,4 +18,4 @@ resources:
 - type: postgres-db
   name: db
 scaling:
-  instance: medium
+  instance: large

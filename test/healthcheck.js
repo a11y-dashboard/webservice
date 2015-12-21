@@ -10,7 +10,6 @@ describe('Server', () => {
     it('should respond with 200', (done) => {
       request(URL)
         .get('/healthcheck')
-        .expect('Content-Type', /plain/)
         .expect('♥')
         .expect(200, done);
     });
@@ -20,7 +19,6 @@ describe('Server', () => {
     it('should respond with 200', (done) => {
       request(URL)
         .get('/healthcheck.db')
-        .expect('Content-Type', /plain/)
         .expect('♥')
         .expect(200, done);
     });

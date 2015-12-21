@@ -65,16 +65,9 @@ server.route({
   },
   handler: (request, reply) => {
     dbal.db().query(`
-      SELECT
-        origin_project AS origin,
-        EXTRACT(epoch FROM crawled) * 1000 AS timestamp,
-        standard,
-        level,
-        COUNT(*) AS count
+      SELECT *
       FROM
-        ${dbal.tables.A11Y}
-      GROUP BY origin_project, crawled, standard, level
-      ORDER BY origin_project, crawled DESC, standard, level;
+        ${dbal.views.OVERVIEW};
       `)
       .then((data) => {
         const result = {};
@@ -177,6 +170,7 @@ server.route({
               });
           }))
           .on('close', () => {
+            queries.push(t.none(`REFRESH MATERIALIZED VIEW ${dbal.views.OVERVIEW};`));
             t.batch(queries).then(resolve, reject);
           });
       });

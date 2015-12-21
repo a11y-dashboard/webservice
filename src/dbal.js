@@ -3,6 +3,7 @@
 const pgPromise = require('pg-promise');
 const logger = require('./logger');
 const PG_DB_TABLE_A11Y = 'a11y';
+const PG_DB_VIEW_OVERVIEW = 'overview';
 
 const PG_DB_URL = process.env.PG_DB_URL;
 
@@ -25,5 +26,8 @@ module.exports = {
   pgp,
   tables: {
     A11Y: PG_DB_TABLE_A11Y,
+  },
+  views: {
+    OVERVIEW: PG_DB_VIEW_OVERVIEW,
   },
 };

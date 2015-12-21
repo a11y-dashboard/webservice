@@ -157,3 +157,21 @@ IF NOT EXISTS (
       (reverse_dns COLLATE pg_catalog."default");
 END IF;
 END$$;
+
+-- DROP INDEX a11y_crawled_idx;
+DO $$
+BEGIN
+IF NOT EXISTS (
+    SELECT 1
+    FROM   pg_class
+    JOIN   pg_namespace
+    ON pg_namespace.oid = pg_class.relnamespace
+    WHERE  pg_class.relname = 'a11y_crawled_idx'
+    AND    pg_namespace.nspname = 'public'
+    ) THEN
+    CREATE INDEX a11y_crawled_idx
+      ON a11y
+      USING btree
+      (crawled DESC);
+END IF;
+END$$;

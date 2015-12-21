@@ -170,11 +170,11 @@ server.route({
               });
           }))
           .on('close', () => {
-            queries.push(t.none(`REFRESH MATERIALIZED VIEW ${dbal.views.OVERVIEW};`));
             t.batch(queries).then(resolve, reject);
           });
       });
     })
+      .then(() => dbal.db().query(`REFRESH MATERIALIZED VIEW ${dbal.views.OVERVIEW};`))
       .then(() => reply({ error: null }).code(201))
       .catch((error) => reply(null, error).code(500));
   },

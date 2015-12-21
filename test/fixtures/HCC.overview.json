@@ -3,11 +3,11 @@
     "datapoints": {
       "1447064430000": {
         "section508": {
-          "error": "284",
+          "error": "290",
           "warning": "1"
         },
         "section508a": {
-          "error": "217"
+          "error": "219"
         },
         "section508n": {
           "error": "13"
@@ -17,26 +17,26 @@
         },
         "best-practice": {
           "error": "11",
-          "warning": "312"
+          "warning": "336"
         },
         "wcag111": {
-          "error": "206"
+          "error": "208"
         },
         "wcag131": {
           "error": "13"
         },
         "wcag143": {
-          "error": "96"
+          "error": "102"
         },
         "wcag241": {
           "error": "2"
         },
         "wcag2a": {
-          "error": "243"
+          "error": "245"
         },
         "wcag2aa": {
-          "error": "805",
-          "warning": "148"
+          "error": "849",
+          "warning": "180"
         },
         "wcag332": {
           "error": "13"
@@ -45,7 +45,7 @@
           "error": "11"
         },
         "wcag412": {
-          "error": "23"
+          "error": "25"
         }
       }
     }

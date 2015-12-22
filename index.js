@@ -91,6 +91,7 @@ server.route({
   method: 'POST',
   path: '/load.crawlkit',
   handler: (request, reply) => {
+    logger.info('Starting load');
     const timestamp = request.query.timestamp;
     const origin = request.query.origin;
 
@@ -119,6 +120,7 @@ server.route({
             };
           }))
           .pipe(es.mapSync((singleResult) => {
+            logger.info(`Transforming result for URL ${singleResult.url}`);
             transformer.transformResult(singleResult.url, singleResult.value)
               .then((transformedResults) => {
                 transformedResults.forEach((result) => {
@@ -170,12 +172,19 @@ server.route({
               });
           }))
           .on('close', () => {
+            logger.info(`Executing queries`);
             t.batch(queries).then(resolve, reject);
           });
       });
     })
-      .then(() => dbal.db().query(`REFRESH MATERIALIZED VIEW ${dbal.views.OVERVIEW};`))
-      .then(() => reply({ error: null }).code(201))
+      .then(() => {
+        logger.info(`Rematerializing view`);
+        return dbal.db().query(`REFRESH MATERIALIZED VIEW ${dbal.views.OVERVIEW};`);
+      })
+      .then(() => {
+        logger.info(`Sending response`);
+        reply({ error: null }).code(201);
+      })
       .catch((error) => reply(null, error).code(500));
   },
   config: {

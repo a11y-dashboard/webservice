@@ -22,7 +22,7 @@ module.exports = (server) => {
             const project = result[row.origin] = result[row.origin] || { datapoints: {} };
             const datapoints = project.datapoints[row.timestamp] = project.datapoints[row.timestamp] || {};
             const standard = datapoints[row.standard] = datapoints[row.standard] || {};
-            standard[row.level] = row.count;
+            standard[row.level] = +row.count;
           });
           return reply(result);
         })

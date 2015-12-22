@@ -3,49 +3,49 @@
     "datapoints": {
       "1447064430000": {
         "section508": {
-          "error": "290",
-          "warning": "1"
+          "error": 290,
+          "warning": 1
         },
         "section508a": {
-          "error": "219"
+          "error": 219
         },
         "section508n": {
-          "error": "13"
+          "error": 13
         },
         "section508o": {
-          "error": "2"
+          "error": 2
         },
         "best-practice": {
-          "error": "11",
-          "warning": "336"
+          "error": 11,
+          "warning": 336
         },
         "wcag111": {
-          "error": "208"
+          "error": 208
         },
         "wcag131": {
-          "error": "13"
+          "error": 13
         },
         "wcag143": {
-          "error": "102"
+          "error": 102
         },
         "wcag241": {
-          "error": "2"
+          "error": 2
         },
         "wcag2a": {
-          "error": "245"
+          "error": 245
         },
         "wcag2aa": {
-          "error": "849",
-          "warning": "180"
+          "error": 849,
+          "warning": 180
         },
         "wcag332": {
-          "error": "13"
+          "error": 13
         },
         "wcag411": {
-          "error": "11"
+          "error": 11
         },
         "wcag412": {
-          "error": "25"
+          "error": 25
         }
       }
     }

@@ -19,3 +19,5 @@ resources:
   name: db
 scaling:
   instance: large
+loadBalancer:
+  connectionTimeout: 600

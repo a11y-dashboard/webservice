@@ -28,6 +28,7 @@ module.exports = (server) => {
               `, [origin, dbal.pgp.as.date(timestamp)]),
           ];
 
+          request.log.info(`Transforming results`);
           request.payload
             .on('error', (err) => {
               reply(null, err).code(500);
@@ -40,7 +41,7 @@ module.exports = (server) => {
               };
             }))
             .pipe(es.mapSync((singleResult) => {
-              request.log.info(`Transforming result for URL ${singleResult.url}`);
+              request.log.debug(`Transforming result for URL ${singleResult.url}`);
               transformer.transformResult(singleResult.url, singleResult.value)
                 .then((transformedResults) => {
                   transformedResults.forEach((result) => {

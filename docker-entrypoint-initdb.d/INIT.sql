@@ -179,12 +179,35 @@ END$$;
 DROP MATERIALIZED VIEW IF EXISTS overview;
 
 CREATE MATERIALIZED VIEW overview AS
- SELECT a11y.origin_project AS origin,
-    date_part('epoch'::text, a11y.crawled) * 1000::double precision AS "timestamp",
-    a11y.standard,
-    a11y.level,
-    count(*) AS count
-   FROM a11y
-  GROUP BY a11y.origin_project, a11y.crawled, a11y.standard, a11y.level
-  ORDER BY a11y.origin_project, a11y.crawled DESC, a11y.standard, a11y.level
+SELECT
+    origin,
+    urls,
+    date_part('epoch'::text, l.crawled) * 1000::double precision AS "timestamp",
+    level,
+    count
+  FROM (
+ SELECT
+   origin_project AS origin,
+   crawled,
+   level,
+   COUNT(*) AS count
+ FROM a11y
+ GROUP BY
+   origin_project,
+   crawled,
+   level
+ ) l
+ INNER JOIN (
+ SELECT
+   COUNT(DISTINCT original_url) AS urls,
+   origin_project,
+   crawled
+ FROM a11y
+ GROUP BY
+   origin_project,
+   crawled
+ ) r
+ ON l.origin = r.origin_project
+ AND l.crawled = r.crawled
+ORDER BY origin, timestamp DESC
 WITH DATA;

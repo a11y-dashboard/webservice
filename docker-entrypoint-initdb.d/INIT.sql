@@ -176,38 +176,49 @@ IF NOT EXISTS (
 END IF;
 END$$;
 
-DROP MATERIALIZED VIEW IF EXISTS overview;
-
-CREATE MATERIALIZED VIEW overview AS
-SELECT
-    origin,
-    urls,
-    date_part('epoch'::text, l.crawled) * 1000::double precision AS "timestamp",
-    level,
-    count
-  FROM (
- SELECT
-   origin_project AS origin,
-   crawled,
-   level,
-   COUNT(*) AS count
- FROM a11y
- GROUP BY
-   origin_project,
-   crawled,
-   level
- ) l
- INNER JOIN (
- SELECT
-   COUNT(DISTINCT original_url) AS urls,
-   origin_project,
-   crawled
- FROM a11y
- GROUP BY
-   origin_project,
-   crawled
- ) r
- ON l.origin = r.origin_project
- AND l.crawled = r.crawled
-ORDER BY origin, timestamp DESC
-WITH DATA;
+-- DROP MATERIALIZED VIEW IF EXISTS overview;
+DO $$
+BEGIN
+IF NOT EXISTS (
+    SELECT 1
+    FROM   pg_class
+    JOIN   pg_namespace
+    ON pg_namespace.oid = pg_class.relnamespace
+    WHERE  pg_class.relname = 'overview'
+    AND    pg_namespace.nspname = 'public'
+    ) THEN
+    CREATE MATERIALIZED VIEW overview AS
+      SELECT
+          origin,
+          urls,
+          date_part('epoch'::text, l.crawled) * 1000::double precision AS "timestamp",
+          level,
+          count
+        FROM (
+       SELECT
+         origin_project AS origin,
+         crawled,
+         level,
+         COUNT(*) AS count
+       FROM a11y
+       GROUP BY
+         origin_project,
+         crawled,
+         level
+       ) l
+       INNER JOIN (
+       SELECT
+         COUNT(DISTINCT original_url) AS urls,
+         origin_project,
+         crawled
+       FROM a11y
+       GROUP BY
+         origin_project,
+         crawled
+       ) r
+       ON l.origin = r.origin_project
+       AND l.crawled = r.crawled
+      ORDER BY origin, timestamp DESC
+    WITH DATA;
+END IF;
+END$$;

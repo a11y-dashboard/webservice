@@ -2,14 +2,10 @@
 
 const Hapi = require('hapi');
 const hapiBunyan = require('hapi-bunyan');
-const fs = require('fs');
 const glob = require('glob');
-const dbal = require('./src/dbal');
 const logger = require('./src/logger');
 
-const INIT_SCRIPT = fs.readFileSync('./docker-entrypoint-initdb.d/INIT.sql', 'utf8');
-
-dbal.db().query(INIT_SCRIPT).catch((err) => logger.error(err));
+require('./src/setup.database.js');
 
 const server = new Hapi.Server();
 

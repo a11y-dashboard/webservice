@@ -57,7 +57,8 @@ module.exports = (server) => {
                       level,
                       origin_project,
                       standard,
-                      origin_library
+                      origin_library,
+                      help_url
                     ) VALUES (
                       $<reverse_dns>,
                       $<crawled>,
@@ -69,7 +70,8 @@ module.exports = (server) => {
                       $<level>,
                       $<origin_project>,
                       $<standard>,
-                      $<origin_library>
+                      $<origin_library>,
+                      $<help_url>
                     );
                     `,
                       {
@@ -84,6 +86,7 @@ module.exports = (server) => {
                         origin_project: origin,
                         standard: result.standard ? result.standard.toLowerCase() : null,
                         origin_library: result.originLibrary,
+                        help_url: result.helpUrl,
                       });
                     queries.push(insert);
                   });

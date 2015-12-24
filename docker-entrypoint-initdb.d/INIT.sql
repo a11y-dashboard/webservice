@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS a11y
   level level NOT NULL,
   standard text,
   loaded timestamp with time zone DEFAULT now(),
+  help_url text,
   CONSTRAINT a11y_pkey PRIMARY KEY (id)
 )
 WITH (

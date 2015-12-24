@@ -69,7 +69,7 @@ function normalizeAxe(result) {
           selector: node.target.join(',\n'),
           context: node.html,
           helpUrl: rule.helpUrl,
-          msg: rule.description,
+          msg: rule.help,
           standard,
         });
       });

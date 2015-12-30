@@ -28,7 +28,8 @@ module.exports = (server) => {
       const reverseDns = request.query.reverseDns;
 
       dbal.db().query(`
-        SELECT  reverse_dns,
+        SELECT  id,
+                reverse_dns,
                 original_url,
                 code,
                 context,

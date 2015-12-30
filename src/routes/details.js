@@ -16,6 +16,7 @@ module.exports = (server) => {
         query: {
           origin: Joi.string().alphanum().min(3).required(),
           reverseDns: Joi.string().default('%'),
+          standard: Joi.string().default('%'),
           timestamp: Joi.date().required(),
           level: Joi.string().allow(levels).required(),
         },
@@ -26,6 +27,7 @@ module.exports = (server) => {
       const origin = request.query.origin;
       const level = request.query.level;
       const reverseDns = request.query.reverseDns;
+      const standard = request.query.standard;
 
       dbal.db().query(`
         SELECT  id,
@@ -43,6 +45,7 @@ module.exports = (server) => {
         AND     crawled = $2
         AND     level = $3
         AND     reverse_dns LIKE $4
+        AND     standard LIKE $5
         ORDER BY
                 reverse_dns,
                 origin_library,
@@ -52,6 +55,7 @@ module.exports = (server) => {
           dbal.pgp.as.date(timestamp),
           level,
           reverseDns,
+          standard,
         ])
         .then((data) => {
           return reply(data);

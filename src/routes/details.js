@@ -16,7 +16,7 @@ module.exports = (server) => {
         query: {
           origin: Joi.string().alphanum().min(3).required(),
           reverseDns: Joi.string().default('%'),
-          standard: Joi.string().default('%'),
+          standard: Joi.string().allow(''),
           timestamp: Joi.date().required(),
           level: Joi.string().allow(levels).required(),
         },
@@ -27,7 +27,13 @@ module.exports = (server) => {
       const origin = request.query.origin;
       const level = request.query.level;
       const reverseDns = request.query.reverseDns;
-      const standard = request.query.standard;
+      const standards = (typeof request.query.standard !== 'undefined' ? request.query.standard.split(',') : []);
+
+      const showWithoutStandard = standards.indexOf('') !== -1 || standards.indexOf('null') !== -1;
+      const OR_SHOW_WITHOUT_STANDARD_SQL = showWithoutStandard ? 'OR standard IS NULL' : '';
+
+      request.log.debug(standards);
+      request.log.debug('show without standard', showWithoutStandard);
 
       dbal.db().query(`
         SELECT  id,
@@ -41,22 +47,24 @@ module.exports = (server) => {
                 origin_library,
                 standard
         FROM    ${dbal.tables.A11Y}
-        WHERE   origin_project = $1
-        AND     crawled = $2
-        AND     level = $3
-        AND     reverse_dns LIKE $4
-        AND     standard LIKE $5
+        WHERE   origin_project = $<origin>
+        AND     crawled = $<timestamp>
+        AND     level = $<level>
+        AND     reverse_dns LIKE $<reverseDns>
+        `
+        + (standards.length ? `AND (standard = ANY($<standards>) ${OR_SHOW_WITHOUT_STANDARD_SQL})` : '') +
+        `
         ORDER BY
                 reverse_dns,
                 origin_library,
                 code;
-        `, [
+        `, {
           origin,
-          dbal.pgp.as.date(timestamp),
+          timestamp: dbal.pgp.as.date(timestamp),
           level,
           reverseDns,
-          standard,
-        ])
+          standards,
+        })
         .then((data) => {
           return reply(data);
         })

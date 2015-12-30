@@ -33,6 +33,7 @@
     "hapi": "^11.1.2",
     "hapi-bunyan": "^0.6.0",
     "joi": "^7.0.1",
+    "lodash": "^3.10.1",
     "normalize-url": "^1.4.0",
     "object-assign": "^4.0.1",
     "pg-promise": "^2.7.2"

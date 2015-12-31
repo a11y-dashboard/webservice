@@ -29,7 +29,7 @@ module.exports = (server) => {
       const reverseDns = request.query.reverseDns;
       const standards = (typeof request.query.standard !== 'undefined' ? request.query.standard.split(',') : []);
 
-      const showWithoutStandard = standards.indexOf('') !== -1 || standards.indexOf('null') !== -1;
+      const showWithoutStandard = standards.indexOf('best-practice') !== -1;
       const OR_SHOW_WITHOUT_STANDARD_SQL = showWithoutStandard ? 'OR standard IS NULL' : '';
 
       request.log.debug(standards);

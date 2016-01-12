@@ -16,7 +16,7 @@ module.exports = (server) => {
         query: {
           origin: Joi.string().alphanum().min(3).required(),
           reverseDns: Joi.string().default('%'),
-          standard: Joi.string().allow(''),
+          standard: Joi.array().items(Joi.string()).single(),
           timestamp: Joi.date().required(),
           level: Joi.string().allow(levels).required(),
         },
@@ -27,7 +27,7 @@ module.exports = (server) => {
       const origin = request.query.origin;
       const level = request.query.level;
       const reverseDns = request.query.reverseDns;
-      const standards = (typeof request.query.standard !== 'undefined' ? request.query.standard.split(',') : []);
+      const standards = request.query.standard || [];
 
       const showWithoutStandard = standards.indexOf('best-practice') !== -1;
       const OR_SHOW_WITHOUT_STANDARD_SQL = showWithoutStandard ? 'OR standard IS NULL' : '';

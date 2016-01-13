@@ -221,5 +221,8 @@ IF NOT EXISTS (
        AND l.crawled = r.crawled
       ORDER BY origin, timestamp DESC
     WITH DATA;
+
+    CREATE INDEX overview_timestamp
+    ON overview (timestamp);
 END IF;
 END$$;

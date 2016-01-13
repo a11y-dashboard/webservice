@@ -1,6 +1,7 @@
 'use strict'; // eslint-disable-line
 
 const dbal = require('../dbal');
+const Joi = require('joi');
 
 module.exports = (server) => {
   server.route({
@@ -8,13 +9,19 @@ module.exports = (server) => {
     path: '/overview',
     config: {
       cors: true,
+      validate: {
+        query: {
+          minTimestamp: Joi.number().integer().min(0).default(0),
+        },
+      },
     },
     handler: (request, reply) => {
       dbal.db().query(`
         SELECT *
         FROM
-          ${dbal.views.OVERVIEW};
-        `)
+          ${dbal.views.OVERVIEW}
+        WHERE timestamp >= $1;
+        `, [request.query.minTimestamp])
         .then((data) => {
           const result = {};
           data.forEach((row) => {

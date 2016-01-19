@@ -4,6 +4,9 @@ module.exports = (server) => {
   server.route({
     method: 'GET',
     path: '/healthcheck',
-    handler: (request, reply) => reply('♥').type('text/plain'),
+    handler: (request, reply) => {
+      request.log.info('someone is checking my health');
+      reply('♥').type('text/plain');
+    },
   });
 };

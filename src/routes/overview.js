@@ -16,6 +16,7 @@ module.exports = (server) => {
       },
     },
     handler: (request, reply) => {
+      request.log.info('Querying overview');
       dbal.db().query(`
         SELECT *
         FROM
@@ -23,6 +24,7 @@ module.exports = (server) => {
         WHERE timestamp >= $1;
         `, [request.query.minTimestamp])
         .then((data) => {
+          request.log.info('Overview data fetched from database');
           const result = {};
           data.forEach((row) => {
             const project = result[row.origin] = result[row.origin] || {
@@ -33,6 +35,7 @@ module.exports = (server) => {
             };
             datapoints[row.level] = +row.count;
           });
+          request.log.info('Finished calculating overview table');
           return reply(result);
         })
         .catch((err) => {

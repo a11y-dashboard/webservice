@@ -9,6 +9,7 @@ module.exports = (server) => {
     handler: (request, reply) => {
       dbal.db().query('SELECT $1::int AS number', ['1'])
         .then(() => {
+          request.log.info('someone is checking my DB health');
           return reply('♥').type('text/plain');
         })
         .catch((err) => {

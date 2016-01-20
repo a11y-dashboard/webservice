@@ -102,10 +102,6 @@ module.exports = (server) => {
         });
       })
         .then(() => {
-          request.log.info(`Rematerializing view`);
-          return dbal.db().query(`REFRESH MATERIALIZED VIEW ${dbal.views.OVERVIEW};`);
-        })
-        .then(() => {
           request.log.info(`Sending response`);
           reply({ error: null }).code(201);
         })

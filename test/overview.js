@@ -15,14 +15,10 @@ function loadFixture(origin, timestamp, done) {
       timestamp,
     })
     .send(results)
-    .expect(201, () => {
-      request(URL)
-        .post('/refresh')
-        .expect(200, done);
-    });
+    .expect(201, done);
 }
 
-describe('Server', function server() {
+describe.only('Server', function server() {
   this.timeout(60000);
 
   describe('GET /overview', () => {

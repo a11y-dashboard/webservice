@@ -13,7 +13,9 @@ module.exports = (server) => {
     handler: (request, reply) => {
       request.log.info('Starting load');
       const timestamp = request.query.timestamp;
+      const realTimestamp = timestamp.getTime();
       const origin = request.query.origin;
+      const overallStats = {};
 
       dbal.db().tx((t) => {
         return new Promise((resolve, reject) => {
@@ -45,6 +47,13 @@ module.exports = (server) => {
               transformer.transformResult(singleResult.url, singleResult.value)
                 .then((transformedResults) => {
                   transformedResults.forEach((result) => {
+                    overallStats[result.type] = overallStats[result.type] || {
+                      urls: new Set(),
+                      count: 0,
+                    };
+                    overallStats[result.type].urls.add(result.url);
+                    overallStats[result.type].count++;
+
                     const insert = t.none(`
                     INSERT INTO ${dbal.tables.A11Y}(
                       reverse_dns,
@@ -102,6 +111,50 @@ module.exports = (server) => {
         });
       })
         .then(() => {
+          request.log.info('Updating materialized view');
+          return dbal.db().tx((t) => {
+            const queries = [
+              t.none(`
+              DELETE FROM
+                ${dbal.views.OVERVIEW}
+              WHERE
+                origin=$1
+              AND
+                timestamp=$2;
+              `, [origin, realTimestamp]),
+            ];
+
+            request.log.info('timestamp: ' + realTimestamp);
+
+            Object.keys(overallStats).forEach((level) => {
+              queries.push(t.none(`
+                INSERT INTO
+                  ${dbal.views.OVERVIEW}(
+                    origin,
+                    urls,
+                    timestamp,
+                    level,
+                    count
+                  ) VALUES (
+                    $<origin>,
+                    $<urls>,
+                    $<timestamp>,
+                    $<level>,
+                    $<count>
+                  );
+                `, {
+                  origin,
+                  urls: overallStats[level].urls.size,
+                  timestamp: realTimestamp,
+                  level,
+                  count: overallStats[level].count,
+                }));
+            });
+
+            return t.batch(queries);
+          });
+        })
+        .then(() => {
           request.log.info(`Sending response`);
           reply({ error: null }).code(201);
         })
@@ -111,7 +164,7 @@ module.exports = (server) => {
       payload: {
         output: 'stream',
         parse: 'gunzip',
-        timeout: 1000 * 60 * 10/* minutes */,
+        timeout: 1000 * 60 * 20/* minutes */,
         maxBytes: 1024 * 1024 * 100/* MB */,
       },
       description: 'This allows you to bulk-load results from crawlkit.',

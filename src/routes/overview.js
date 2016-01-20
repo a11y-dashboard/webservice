@@ -21,7 +21,11 @@ module.exports = (server) => {
         SELECT *
         FROM
           ${dbal.views.OVERVIEW}
-        WHERE timestamp >= $1;
+        WHERE timestamp >= $1
+        ORDER BY
+          origin,
+          timestamp DESC
+        ;
         `, [request.query.minTimestamp])
         .then((data) => {
           request.log.info('Overview data fetched from database');

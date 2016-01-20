@@ -177,7 +177,24 @@ IF NOT EXISTS (
 END IF;
 END$$;
 
--- DROP MATERIALIZED VIEW IF EXISTS overview;
+-- Table: overview
+-- DROP TABLE overview;
+
+CREATE TABLE IF NOT EXISTS overview
+(
+  origin character varying,
+  urls bigint,
+  "timestamp" bigint,
+  level level,
+  count bigint
+)
+WITH (
+  OIDS=FALSE
+);
+
+-- Index: overview_timestamp_idx
+
+-- DROP INDEX overview_timestamp_idx;
 DO $$
 BEGIN
 IF NOT EXISTS (
@@ -185,44 +202,31 @@ IF NOT EXISTS (
     FROM   pg_class
     JOIN   pg_namespace
     ON pg_namespace.oid = pg_class.relnamespace
-    WHERE  pg_class.relname = 'overview'
+    WHERE  pg_class.relname = 'overview_timestamp_idx'
     AND    pg_namespace.nspname = 'public'
     ) THEN
-    CREATE MATERIALIZED VIEW overview AS
-      SELECT
-          origin,
-          urls,
-          date_part('epoch'::text, l.crawled) * 1000::double precision AS "timestamp",
-          level,
-          count
-        FROM (
-       SELECT
-         origin_project AS origin,
-         crawled,
-         level,
-         COUNT(*) AS count
-       FROM a11y
-       GROUP BY
-         origin_project,
-         crawled,
-         level
-       ) l
-       INNER JOIN (
-       SELECT
-         COUNT(DISTINCT original_url) AS urls,
-         origin_project,
-         crawled
-       FROM a11y
-       GROUP BY
-         origin_project,
-         crawled
-       ) r
-       ON l.origin = r.origin_project
-       AND l.crawled = r.crawled
-      ORDER BY origin, timestamp DESC
-    WITH DATA;
+      CREATE INDEX overview_timestamp_idx
+        ON overview
+        USING btree
+        ("timestamp");
+END IF;
+END$$;
+-- Index: uniq_idx
 
-    CREATE INDEX overview_timestamp
-    ON overview (timestamp);
+-- DROP INDEX uniq_idx;
+DO $$
+BEGIN
+IF NOT EXISTS (
+    SELECT 1
+    FROM   pg_class
+    JOIN   pg_namespace
+    ON pg_namespace.oid = pg_class.relnamespace
+    WHERE  pg_class.relname = 'overview_uniq_idx'
+    AND    pg_namespace.nspname = 'public'
+    ) THEN
+      CREATE UNIQUE INDEX overview_uniq_idx
+        ON overview
+        USING btree
+        (origin COLLATE pg_catalog."default", "timestamp", level);
 END IF;
 END$$;

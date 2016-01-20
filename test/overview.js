@@ -18,7 +18,7 @@ function loadFixture(origin, timestamp, done) {
     .expect(201, done);
 }
 
-describe.only('Server', function server() {
+describe('Server', function server() {
   this.timeout(60000);
 
   describe('GET /overview', () => {

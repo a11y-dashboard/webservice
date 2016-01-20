@@ -5,7 +5,7 @@ module.exports = (server) => {
     method: 'GET',
     path: '/healthcheck',
     handler: (request, reply) => {
-      request.log.info('someone is checking my health');
+      request.log.debug('someone is checking my health');
       reply('♥').type('text/plain');
     },
   });

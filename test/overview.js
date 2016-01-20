@@ -15,7 +15,11 @@ function loadFixture(origin, timestamp, done) {
       timestamp,
     })
     .send(results)
-    .expect(201, done);
+    .expect(201, () => {
+      request(URL)
+        .post('/refresh')
+        .expect(200, done);
+    });
 }
 
 describe('Server', function server() {

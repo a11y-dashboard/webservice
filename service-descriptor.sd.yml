@@ -21,3 +21,4 @@ scaling:
   instance: large
 loadBalancer:
   connectionTimeout: 1200
+cleanup: false

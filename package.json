@@ -23,7 +23,7 @@
     "url": "git+ssh://git@bitbucket.org/atlassian/a11y-dashboard-webservice.git"
   },
   "author": "Joscha Feth <jfeth@atlassian.com>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "homepage": "https://bitbucket.org/atlassian/a11y-dashboard-webservice#readme",
   "dependencies": {
     "JSONStream": "^1.0.7",

@@ -34,10 +34,10 @@ module.exports = (server) => {
             const project = result[row.origin] = result[row.origin] || {
               datapoints: {},
             };
-            const datapoints = project.datapoints[row.timestamp] = project.datapoints[row.timestamp] || {
+            project.datapoints[row.timestamp] = project.datapoints[row.timestamp] || {
               urls: +row.urls,
             };
-            datapoints[row.level] = +row.count;
+            project.datapoints[row.timestamp][row.level] = +row.count;
           });
           request.log.info('Finished calculating overview table');
           return reply(result);

@@ -12,7 +12,8 @@ dbal.db().one(`
     if (!res.count) {
       logger.debug('Setting up database');
       const INIT_SCRIPT = fs.readFileSync('./docker-entrypoint-initdb.d/INIT.sql', 'utf8');
-      return dbal.db().query(INIT_SCRIPT);
+      dbal.db().query(INIT_SCRIPT);
+      return;
     }
     logger.debug('Database has been set up already!');
   })

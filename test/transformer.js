@@ -22,17 +22,17 @@ describe('Transformer', () => {
 
       const a11yDevTools = transformer.normalizeA11yDevTools(runners['a11y-dev-tools'].result);
       a11yDevTools.forEach((res) => {
-        res.originLibrary = 'a11y-dev-tools';
+        res.originLibrary = 'a11y-dev-tools'; // eslint-disable-line no-param-reassign
       });
 
       const axe = transformer.normalizeAxe(runners.axe.result);
       axe.forEach((res) => {
-        res.originLibrary = 'axe';
+        res.originLibrary = 'axe'; // eslint-disable-line no-param-reassign
       });
 
       const htmlcs = transformer.normalizeHtmlcs(runners.htmlcs.result);
       htmlcs.forEach((res) => {
-        res.originLibrary = 'htmlcs';
+        res.originLibrary = 'htmlcs'; // eslint-disable-line no-param-reassign
       });
 
       const expectedResult = []
@@ -40,8 +40,8 @@ describe('Transformer', () => {
           .concat(axe)
           .concat(htmlcs);
       expectedResult.forEach((tuple) => {
-        tuple.url = 'https://www.hipchat.com/';
-        tuple.reverseDnsNotation = 'com.hipchat/';
+        tuple.url = 'https://www.hipchat.com/'; // eslint-disable-line no-param-reassign
+        tuple.reverseDnsNotation = 'com.hipchat/'; // eslint-disable-line no-param-reassign
       });
 
       return transformer.transformResult('https://www.hipchat.com/', results['https://www.hipchat.com/']).should.eventually.deep.equal(expectedResult);

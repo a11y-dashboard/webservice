@@ -120,9 +120,9 @@ function transformResult(uri, resultsPerUrl) {
               return;
           }
           transformedResult.forEach((result) => {
-            result.url = uri;
-            result.originLibrary = runner;
-            result.reverseDnsNotation = reverseDnsNotation;
+            result.url = uri; // eslint-disable-line no-param-reassign
+            result.originLibrary = runner; // eslint-disable-line no-param-reassign
+            result.reverseDnsNotation = reverseDnsNotation; // eslint-disable-line no-param-reassign
           });
 
           res = res.concat(transformedResult);

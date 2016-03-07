@@ -17,99 +17,95 @@ module.exports = (server) => {
       const origin = request.query.origin;
       const overallStats = {};
 
-      dbal.db().tx((t) => {
-        return new Promise((resolve, reject) => {
-          const queries = [
-            t.none(`
-              DELETE FROM
-                ${dbal.tables.A11Y}
-              WHERE
-                origin_project=$1
-              AND
-                crawled=$2;
-              `, [origin, dbal.pgp.as.date(timestamp)]),
-          ];
+      dbal.db().tx((t) => new Promise((resolve, reject) => {
+        const queries = [
+          t.none(`
+            DELETE FROM
+              ${dbal.tables.A11Y}
+            WHERE
+              origin_project=$1
+            AND
+              crawled=$2;
+            `, [origin, dbal.pgp.as.date(timestamp)]),
+        ];
 
-          request.log.info(`Transforming results`);
-          request.payload
-            .on('error', (err) => {
-              reply(null, err).code(500);
-              throw err;
-            })
-            .pipe(JSONStream.parse('*', (data, path) => {
-              return {
-                url: path.pop(),
-                value: data,
-              };
-            }))
-            .pipe(es.mapSync((singleResult) => {
-              request.log.debug(`Transforming result for URL ${singleResult.url}`);
-              transformer.transformResult(singleResult.url, singleResult.value)
-                .then((transformedResults) => {
-                  transformedResults.forEach((result) => {
-                    overallStats[result.type] = overallStats[result.type] || {
-                      urls: new Set(),
-                      count: 0,
-                    };
-                    overallStats[result.type].urls.add(result.url);
-                    overallStats[result.type].count++;
+        request.log.info('Transforming results');
+        request.payload
+          .on('error', (err) => {
+            reply(null, err).code(500);
+            throw err;
+          })
+          .pipe(JSONStream.parse('*', (data, path) => ({
+            url: path.pop(),
+            value: data,
+          })))
+          .pipe(es.mapSync((singleResult) => {
+            request.log.debug(`Transforming result for URL ${singleResult.url}`);
+            transformer.transformResult(singleResult.url, singleResult.value)
+              .then((transformedResults) => {
+                transformedResults.forEach((result) => {
+                  overallStats[result.type] = overallStats[result.type] || {
+                    urls: new Set(),
+                    count: 0,
+                  };
+                  overallStats[result.type].urls.add(result.url);
+                  overallStats[result.type].count++;
 
-                    const insert = t.none(`
-                    INSERT INTO ${dbal.tables.A11Y}(
-                      reverse_dns,
-                      crawled,
-                      original_url,
-                      code,
-                      context,
-                      message,
-                      selector,
-                      level,
-                      origin_project,
-                      standard,
-                      origin_library,
-                      help_url
-                    ) VALUES (
-                      $<reverse_dns>,
-                      $<crawled>,
-                      $<original_url>,
-                      $<code>,
-                      $<context>,
-                      $<message>,
-                      $<selector>,
-                      $<level>,
-                      $<origin_project>,
-                      $<standard>,
-                      $<origin_library>,
-                      $<help_url>
-                    );
-                    `,
-                      {
-                        reverse_dns: result.reverseDnsNotation,
-                        crawled: dbal.pgp.as.date(timestamp),
-                        original_url: result.url,
-                        code: result.code,
-                        context: result.context,
-                        message: result.msg,
-                        selector: result.selector,
-                        level: result.type,
-                        origin_project: origin,
-                        standard: result.standard ? result.standard.toLowerCase() : null,
-                        origin_library: result.originLibrary,
-                        help_url: result.helpUrl,
-                      });
-                    queries.push(insert);
-                  });
-                }, (err) => {
-                  reply(null, err).code(500);
-                  throw err;
+                  const insert = t.none(`
+                  INSERT INTO ${dbal.tables.A11Y}(
+                    reverse_dns,
+                    crawled,
+                    original_url,
+                    code,
+                    context,
+                    message,
+                    selector,
+                    level,
+                    origin_project,
+                    standard,
+                    origin_library,
+                    help_url
+                  ) VALUES (
+                    $<reverse_dns>,
+                    $<crawled>,
+                    $<original_url>,
+                    $<code>,
+                    $<context>,
+                    $<message>,
+                    $<selector>,
+                    $<level>,
+                    $<origin_project>,
+                    $<standard>,
+                    $<origin_library>,
+                    $<help_url>
+                  );
+                  `,
+                    {
+                      reverse_dns: result.reverseDnsNotation,
+                      crawled: dbal.pgp.as.date(timestamp),
+                      original_url: result.url,
+                      code: result.code,
+                      context: result.context,
+                      message: result.msg,
+                      selector: result.selector,
+                      level: result.type,
+                      origin_project: origin,
+                      standard: result.standard ? result.standard.toLowerCase() : null,
+                      origin_library: result.originLibrary,
+                      help_url: result.helpUrl,
+                    });
+                  queries.push(insert);
                 });
-            }))
-            .on('close', () => {
-              request.log.info(`Executing queries`);
-              t.batch(queries).then(resolve, reject);
-            });
-        });
-      })
+              }, (err) => {
+                reply(null, err).code(500);
+                throw err;
+              });
+          }))
+          .on('close', () => {
+            request.log.info('Executing queries');
+            t.batch(queries).then(resolve, reject);
+          });
+      }))
         .then(() => {
           request.log.info('Updating materialized view');
           return dbal.db().tx((t) => {
@@ -124,7 +120,7 @@ module.exports = (server) => {
               `, [origin, realTimestamp]),
             ];
 
-            request.log.info('timestamp: ' + realTimestamp);
+            request.log.info(`timestamp: ${realTimestamp}`);
 
             Object.keys(overallStats).forEach((level) => {
               queries.push(t.none(`
@@ -155,7 +151,7 @@ module.exports = (server) => {
           });
         })
         .then(() => {
-          request.log.info(`Sending response`);
+          request.log.info('Sending response');
           reply({ error: null }).code(201);
         })
         .catch((error) => reply(null, error).code(500));

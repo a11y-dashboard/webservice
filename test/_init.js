@@ -4,6 +4,7 @@ const ENDPOINT = process.env.ENDPOINT;
 
 before(function testWithTimeout(done) {
   this.timeout(60000);
+  console.log('waiting for webserver and postgres...'); // eslint-disable-line no-console
 
   waitOn({
     resources: [
@@ -12,7 +13,8 @@ before(function testWithTimeout(done) {
     ],
   }, (err) => {
     if (err) {
-      return done(err);
+      done(err);
+      return;
     }
     dbHelper.truncateA11yTable().then(() => done()).catch(done);
   });

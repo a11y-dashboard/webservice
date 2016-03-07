@@ -8,8 +8,14 @@ const PG_DB_VIEW_OVERVIEW = 'overview';
 const PG_DB_URL = process.env.PG_DB_URL;
 
 const pgp = pgPromise({
-  connect: (client) => logger.debug('Connected to database "%s"', client.connectionParameters.database),
-  disconnect: (client) => logger.debug('Disconnecting from database "%s"', client.connectionParameters.database),
+  connect: (client) => logger.debug(
+    'Connected to database "%s"',
+    client.connectionParameters.database
+  ),
+  disconnect: (client) => logger.debug(
+    'Disconnecting from database "%s"',
+    client.connectionParameters.database
+  ),
   error: (err, e) => {
     logger.error('PG_DB_URL', PG_DB_URL);
     logger.error(err, e);

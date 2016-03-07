@@ -30,7 +30,8 @@ module.exports = (server) => {
       const standards = request.query.standard || [];
 
       const showWithoutStandard = standards.indexOf('best-practice') !== -1;
-      const OR_SHOW_WITHOUT_STANDARD_SQL = showWithoutStandard ? 'OR standard IS NULL' : '';
+      const orIsNull = showWithoutStandard ? 'OR standard IS NULL' : '';
+      const standardAnd = standards.length ? `AND (standard = ANY($<standards>) ${orIsNull})` : '';
 
       request.log.debug(standards);
       request.log.debug('show without standard', showWithoutStandard);
@@ -51,9 +52,7 @@ module.exports = (server) => {
         AND     crawled = $<timestamp>
         AND     level = $<level>
         AND     original_url LIKE $<url>
-        `
-        + (standards.length ? `AND (standard = ANY($<standards>) ${OR_SHOW_WITHOUT_STANDARD_SQL})` : '') +
-        `
+        ${standardAnd}
         ORDER BY
                 reverse_dns,
                 origin_library,
@@ -65,9 +64,7 @@ module.exports = (server) => {
           url,
           standards,
         })
-        .then((data) => {
-          return reply(data);
-        })
+        .then((data) => reply(data))
         .catch((err) => {
           request.log.error(err);
           return reply(null, err);

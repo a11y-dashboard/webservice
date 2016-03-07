@@ -1,0 +1,23 @@
+[{
+  "id": 13208593,
+  "reverse_dns": "com.hipchat/sign_in",
+  "original_url": "https://www.hipchat.com/sign_in",
+  "code": "bypass",
+  "context": "<html lang=\"en\">",
+  "message": "Page must have means to bypass repeated blocks",
+  "help_url": "https://dequeuniversity.com/rules/axe/1.1/bypass",
+  "selector": "html",
+  "origin_library": "axe",
+  "standard": "wcag241"
+}, {
+  "id": 13208621,
+  "reverse_dns": "com.hipchat/sign_in?d=/addons/install",
+  "original_url": "https://www.hipchat.com/sign_in?d=%2Faddons%2Finstall",
+  "code": "bypass",
+  "context": "<html lang=\"en\">",
+  "message": "Page must have means to bypass repeated blocks",
+  "help_url": "https://dequeuniversity.com/rules/axe/1.1/bypass",
+  "selector": "html",
+  "origin_library": "axe",
+  "standard": "wcag241"
+}]

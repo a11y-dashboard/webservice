@@ -26,29 +26,30 @@
   "license": "Apache-2.0",
   "homepage": "https://bitbucket.org/atlassian/a11y-dashboard-webservice#readme",
   "dependencies": {
-    "JSONStream": "^1.0.7",
-    "bunyan": "^1.5.1",
+    "JSONStream": "^1.1.1",
+    "bunyan": "^1.7.1",
     "event-stream": "^3.3.2",
-    "glob": "^6.0.1",
-    "hapi": "^11.1.2",
+    "glob": "^7.0.3",
+    "hapi": "^13.0.0",
     "hapi-bunyan": "^0.6.0",
-    "joi": "^7.0.1",
-    "lodash": "^3.10.1",
-    "normalize-url": "^1.4.0",
+    "joi": "^8.0.4",
+    "lodash": "^4.6.1",
+    "normalize-url": "^1.4.1",
     "object-assign": "^4.0.1",
-    "pg-promise": "^2.7.2"
+    "pg-promise": "^3.3.0"
   },
   "devDependencies": {
-    "chai": "^3.4.1",
-    "chai-as-promised": "^5.1.0",
-    "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^2.0.0",
-    "eslint-plugin-mocha": "^1.1.0",
-    "mocha": "^2.3.4",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.2.0",
+    "eslint": "^2.3.0",
+    "eslint-config-airbnb": "^6.1.0",
+    "eslint-plugin-mocha": "^2.0.0",
+    "eslint-plugin-react": "^4.2.0",
+    "mocha": "^2.4.5",
     "mocha-junit-reporter": "^1.9.1",
-    "nodemon": "^1.8.1",
+    "nodemon": "^1.9.1",
     "parallelshell": "^2.0.0",
-    "supertest": "^1.1.0",
-    "wait-on": "^1.2.1"
+    "supertest": "^1.2.0",
+    "wait-on": "^1.4.0"
   }
 }

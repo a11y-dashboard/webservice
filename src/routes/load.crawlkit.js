@@ -165,7 +165,7 @@ module.exports = (server) => {
         output: 'stream',
         parse: 'gunzip',
         timeout: 1000 * 60 * 20/* minutes */,
-        maxBytes: 1024 * 1024 * 100/* MB */,
+        maxBytes: 1024 * 1024 * 200/* MB */,
       },
       description: 'This allows you to bulk-load results from crawlkit.',
       tags: ['api', 'bulk'],

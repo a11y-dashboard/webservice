@@ -20,5 +20,5 @@ resources:
 scaling:
   instance: large
 loadBalancer:
-  connectionTimeout: 1200
+  connectionTimeout: 2400
 cleanup: false

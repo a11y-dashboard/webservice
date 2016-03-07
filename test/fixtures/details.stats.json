@@ -1,0 +1,37 @@
+{
+  "urls": {
+    "com.hipchat/": "https://www.hipchat.com/",
+    "com.hipchat/about": "https://www.hipchat.com/about",
+    "com.hipchat/customers": "https://www.hipchat.com/customers",
+    "com.hipchat/forgot_password": "https://www.hipchat.com/forgot_password",
+    "com.hipchat/integrations": "https://www.hipchat.com/integrations",
+    "com.hipchat/jobs": "https://www.hipchat.com/jobs",
+    "com.hipchat/press": "https://www.hipchat.com/press",
+    "com.hipchat/pricing": "https://www.hipchat.com/pricing",
+    "com.hipchat/privacy": "https://www.hipchat.com/privacy#showArchived",
+    "com.hipchat/server": "https://www.hipchat.com/server#pricing-show",
+    "com.hipchat/server/get-it": "https://www.hipchat.com/server/get-it",
+    "com.hipchat/sign_in": "https://www.hipchat.com/sign_in",
+    "com.hipchat/sign_in?d=/addons/install": "https://www.hipchat.com/sign_in?d=%2Faddons%2Finstall",
+    "com.hipchat/sign_up": "https://www.hipchat.com/sign_up#start_new_team",
+    "com.hipchat/sign_up?d=/addons/install": "https://www.hipchat.com/sign_up?d=%2Faddons%2Finstall#start_new_team",
+    "com.hipchat/terms": "https://www.hipchat.com/terms#showArchived"
+  },
+  "standards": ["section508",
+    "section508a",
+    "section508n",
+    "section508o",
+    "wcag111",
+    "wcag131",
+    "wcag143",
+    "wcag241",
+    "wcag2a",
+    "wcag2aa",
+    "wcag332",
+    "wcag411",
+    "wcag412",
+    null
+  ],
+  "levels": ["warning", "error"],
+  "count": 2520
+}

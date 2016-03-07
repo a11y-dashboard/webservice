@@ -15,7 +15,7 @@ module.exports = (server) => {
       validate: {
         query: {
           origin: Joi.string().alphanum().min(3).required(),
-          reverseDns: Joi.string().default('%'),
+          url: Joi.string().default('%'),
           standard: Joi.array().items(Joi.string()).single(),
           timestamp: Joi.date().required(),
           level: Joi.string().allow(levels).required(),
@@ -26,7 +26,7 @@ module.exports = (server) => {
       const timestamp = request.query.timestamp;
       const origin = request.query.origin;
       const level = request.query.level;
-      const reverseDns = request.query.reverseDns;
+      const url = request.query.url;
       const standards = request.query.standard || [];
 
       const showWithoutStandard = standards.indexOf('best-practice') !== -1;
@@ -50,7 +50,7 @@ module.exports = (server) => {
         WHERE   origin_project = $<origin>
         AND     crawled = $<timestamp>
         AND     level = $<level>
-        AND     reverse_dns LIKE $<reverseDns>
+        AND     original_url LIKE $<url>
         `
         + (standards.length ? `AND (standard = ANY($<standards>) ${OR_SHOW_WITHOUT_STANDARD_SQL})` : '') +
         `
@@ -62,7 +62,7 @@ module.exports = (server) => {
           origin,
           timestamp: dbal.pgp.as.date(timestamp),
           level,
-          reverseDns,
+          url,
           standards,
         })
         .then((data) => {

@@ -82,10 +82,7 @@ module.exports = (server) => {
         const levels = data.shift();
         const counts = data.shift();
         return {
-          urls: _.zipObject(
-            _.map(urls, 'reverse_dns'),
-            _.map(urls, 'original_url')
-          ),
+          urls: _.map(urls, 'original_url'),
           standards: _.map(standards, 'standard'),
           levels: _.map(levels, 'level'),
           count: +counts.count,
